@@ -12,13 +12,14 @@ class KhuralScheduleViewController: UIViewController,UINavigationBarDelegate,UIN
     
 
     @IBOutlet weak var menu: UIBarButtonItem!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //revealViewController().rearViewRevealWidth = 270
         
-        menu.target = revealViewController()
-        menu.action = #selector(SWRevealViewController.revealToggle(_:))
+        self.menu.target = revealViewController()
+        self.menu.action = #selector(SWRevealViewController.revealToggle(_:))
     }
 
     override func didReceiveMemoryWarning() {

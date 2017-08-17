@@ -44,12 +44,7 @@ class menuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                      UIImage(named:"defaultIcon")!,
                      UIImage(named:"defaultIcon")!,
                      UIImage(named:"defaultIcon")!
-        ]
-        
-        //imgProfile.layer.borderWidth = 1
-        //imgProfile.layer.borderColor = UIColor.black.cgColor
-        //imgProfile.layer.cornerRadius = 10
-        
+        ]                    
         
         imgProfile.layer.masksToBounds = false
         imgProfile.clipsToBounds = true 
@@ -71,6 +66,7 @@ class menuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         
         cell.lblMenuname.text! = ManuNameArray[indexPath.row]
         cell.imgIcon.image = iconArray[1]
+        cell.frame.size = CGSize(width: cell.frame.size.width, height: 200)// = CGRect(x: 0, y: cell.frame., width: <#T##Double#>, height: <#T##Double#>)
         
         return cell
     }

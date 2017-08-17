@@ -49,7 +49,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="47" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GmS-83-v4N">
-                                <rect key="frame" x="0.0" y="251" width="375" height="411"/>
+                                <rect key="frame" x="0.0" y="210" width="375" height="452"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="MenuCell" rowHeight="47" id="Wiy-gD-EKL" customClass="MenuCell" customModule="memuDemo" customModuleProvider="target">
@@ -92,7 +92,7 @@
                                     <outlet property="delegate" destination="mJl-Tf-JQt" id="94q-kK-Kuk"/>
                                 </connections>
                             </tableView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="mJc-GG-32H">
+                            <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profile" translatesAutoresizingMaskIntoConstraints="NO" id="mJc-GG-32H">
                                 <rect key="frame" x="46" y="22" width="164" height="164"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="164" id="bZN-8F-A8H"/>
@@ -100,26 +100,26 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Some TEXT" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vpu-XZ-9HP">
-                                <rect key="frame" x="61" y="197" width="134" height="39"/>
+                                <rect key="frame" x="16" y="189" width="225" height="16"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="39" id="0oe-4s-dIu"/>
+                                    <constraint firstAttribute="height" constant="16" id="0oe-4s-dIu"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Helvetica-Light" family="Helvetica" pointSize="14"/>
-                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="13"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.61785637842465757" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="GmS-83-v4N" firstAttribute="top" secondItem="mJc-GG-32H" secondAttribute="bottom" constant="65" id="2aW-OB-Eko"/>
+                            <constraint firstItem="GmS-83-v4N" firstAttribute="top" secondItem="mJc-GG-32H" secondAttribute="bottom" constant="24" id="2aW-OB-Eko"/>
                             <constraint firstItem="mJc-GG-32H" firstAttribute="leading" secondItem="9pH-dG-ygv" secondAttribute="leadingMargin" constant="30" id="FXF-UF-vdd"/>
-                            <constraint firstItem="Vpu-XZ-9HP" firstAttribute="top" secondItem="mJc-GG-32H" secondAttribute="bottom" constant="11" id="S9t-qy-s5j"/>
+                            <constraint firstItem="Vpu-XZ-9HP" firstAttribute="top" secondItem="mJc-GG-32H" secondAttribute="bottom" constant="3" id="S9t-qy-s5j"/>
                             <constraint firstItem="Vpu-XZ-9HP" firstAttribute="centerX" secondItem="mJc-GG-32H" secondAttribute="centerX" id="UEs-6l-VEs"/>
                             <constraint firstItem="N0H-71-vKa" firstAttribute="top" secondItem="GmS-83-v4N" secondAttribute="bottom" id="Xsk-ms-4KL"/>
                             <constraint firstAttribute="trailing" secondItem="GmS-83-v4N" secondAttribute="trailing" id="ZMp-9T-tIx"/>
                             <constraint firstItem="mJc-GG-32H" firstAttribute="top" secondItem="M39-Be-sxO" secondAttribute="bottom" constant="2" id="eGH-fT-NLH"/>
                             <constraint firstItem="GmS-83-v4N" firstAttribute="leading" secondItem="9pH-dG-ygv" secondAttribute="leading" id="ih3-io-irN"/>
-                            <constraint firstItem="Vpu-XZ-9HP" firstAttribute="leading" secondItem="9pH-dG-ygv" secondAttribute="leadingMargin" constant="45" id="joe-Ns-ibd"/>
+                            <constraint firstItem="Vpu-XZ-9HP" firstAttribute="leading" secondItem="9pH-dG-ygv" secondAttribute="leadingMargin" id="joe-Ns-ibd"/>
                         </constraints>
                     </view>
                     <connections>
@@ -144,6 +144,9 @@
                     <navigationItem key="navigationItem" title="Новости" prompt="Буддизм России" id="CHv-Rj-Bgj">
                         <barButtonItem key="leftBarButtonItem" image="menu" id="0FO-1o-je7"/>
                     </navigationItem>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
                     <connections>
                         <outlet property="btnMenuButton" destination="0FO-1o-je7" id="PR7-oS-fnL"/>
                     </connections>
@@ -165,8 +168,7 @@
                         <barButtonItem key="leftBarButtonItem" image="menu" id="6Vs-io-MBs"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="menu" destination="6Vs-io-MBs" id="fa3-hH-44I"/>
-                        <outlet property="tableView" destination="LeW-dh-pNP" id="Ejm-vl-myF"/>
+                        <outlet property="menu" destination="6Vs-io-MBs" id="7Ks-2F-oNL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wk0-Ml-yll" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -213,7 +215,7 @@
         <scene sceneID="nAR-Ea-0Ho">
             <objects>
                 <viewController storyboardIdentifier="AstrologicalForecastViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="HXX-Gp-4lH" customClass="AstrologicalForecastViewController" customModule="memuDemo" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="MKU-0D-8xH">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" sectionIndexMinimumDisplayRowCount="7" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="MKU-0D-8xH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
