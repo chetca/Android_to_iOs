@@ -7,18 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		88358AB81F3F4485000E54DC /* AstrologicalForecastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88358AB71F3F4485000E54DC /* AstrologicalForecastViewController.swift */; };
-		B222F1E81DAA30330089573D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B222F1E71DAA30330089573D /* AppDelegate.swift */; };
-		B222F1EA1DAA30330089573D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B222F1E91DAA30330089573D /* ViewController.swift */; };
-		B222F1ED1DAA30330089573D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B222F1EB1DAA30330089573D /* Main.storyboard */; };
+		88E2C5A81F49D24C003859DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E2C5A01F49D24C003859DF /* AppDelegate.swift */; };
+		88E2C5A91F49D24C003859DF /* ConcretteNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E2C5A11F49D24C003859DF /* ConcretteNewsViewController.swift */; };
+		88E2C5AA1F49D24C003859DF /* FeedsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E2C5A21F49D24C003859DF /* FeedsCell.swift */; };
+		88E2C5AB1F49D24C003859DF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E2C5A31F49D24C003859DF /* ViewController.swift */; };
+		88E2C5AC1F49D24C003859DF /* KhuralScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E2C5A41F49D24C003859DF /* KhuralScheduleViewController.swift */; };
+		88E2C5AD1F49D24C003859DF /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E2C5A51F49D24C003859DF /* MenuCell.swift */; };
+		88E2C5AE1F49D24C003859DF /* menuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E2C5A61F49D24C003859DF /* menuViewController.swift */; };
+		88E2C5AF1F49D24C003859DF /* AstrologicalForecastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E2C5A71F49D24C003859DF /* AstrologicalForecastViewController.swift */; };
+		88E2C5B81F49D2A9003859DF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88E2C5B01F49D2A9003859DF /* LaunchScreen.storyboard */; };
+		88E2C5B91F49D2A9003859DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88E2C5B21F49D2A9003859DF /* Main.storyboard */; };
+		88E2C5BA1F49D2A9003859DF /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88E2C5B41F49D2A9003859DF /* Info.plist */; };
+		88E2C5BB1F49D2A9003859DF /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E2C5B71F49D2A9003859DF /* SWRevealViewController.m */; };
 		B222F1EF1DAA30330089573D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B222F1EE1DAA30330089573D /* Assets.xcassets */; };
-		B222F1F21DAA30330089573D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B222F1F01DAA30330089573D /* LaunchScreen.storyboard */; };
 		B222F1FD1DAA30330089573D /* memuDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B222F1FC1DAA30330089573D /* memuDemoTests.swift */; };
 		B222F2081DAA30330089573D /* memuDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B222F2071DAA30330089573D /* memuDemoUITests.swift */; };
-		B222F2181DAA33DA0089573D /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B222F2171DAA33DA0089573D /* SWRevealViewController.m */; };
-		B222F21A1DAA354D0089573D /* menuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B222F2191DAA354D0089573D /* menuViewController.swift */; };
-		B222F21C1DAA36070089573D /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B222F21B1DAA36070089573D /* MenuCell.swift */; };
-		B222F21E1DAA46600089573D /* KhuralScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B222F21D1DAA46600089573D /* KhuralScheduleViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,26 +42,28 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		88358AB71F3F4485000E54DC /* AstrologicalForecastViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AstrologicalForecastViewController.swift; sourceTree = "<group>"; };
+		88E2C5A01F49D24C003859DF /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		88E2C5A11F49D24C003859DF /* ConcretteNewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConcretteNewsViewController.swift; path = FeedsSC/ConcretteNewsViewController.swift; sourceTree = "<group>"; };
+		88E2C5A21F49D24C003859DF /* FeedsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedsCell.swift; path = FeedsSC/FeedsCell.swift; sourceTree = "<group>"; };
+		88E2C5A31F49D24C003859DF /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = FeedsSC/ViewController.swift; sourceTree = "<group>"; };
+		88E2C5A41F49D24C003859DF /* KhuralScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KhuralScheduleViewController.swift; path = KhuralScheduleSC/KhuralScheduleViewController.swift; sourceTree = "<group>"; };
+		88E2C5A51F49D24C003859DF /* MenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuCell.swift; path = SideMenuSC/MenuCell.swift; sourceTree = "<group>"; };
+		88E2C5A61F49D24C003859DF /* menuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = menuViewController.swift; path = SideMenuSC/menuViewController.swift; sourceTree = "<group>"; };
+		88E2C5A71F49D24C003859DF /* AstrologicalForecastViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AstrologicalForecastViewController.swift; path = ZurkhaiSC/AstrologicalForecastViewController.swift; sourceTree = "<group>"; };
+		88E2C5B11F49D2A9003859DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		88E2C5B31F49D2A9003859DF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		88E2C5B41F49D2A9003859DF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		88E2C5B51F49D2A9003859DF /* memuDemo-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "memuDemo-Bridging-Header.h"; sourceTree = "<group>"; };
+		88E2C5B61F49D2A9003859DF /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = SWRevealViewController/SWRevealViewController.h; sourceTree = "<group>"; };
+		88E2C5B71F49D2A9003859DF /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = SWRevealViewController/SWRevealViewController.m; sourceTree = "<group>"; };
 		B222F1E41DAA30330089573D /* memuDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = memuDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		B222F1E71DAA30330089573D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B222F1E91DAA30330089573D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		B222F1EC1DAA30330089573D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B222F1EE1DAA30330089573D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B222F1F11DAA30330089573D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		B222F1F31DAA30330089573D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B222F1F81DAA30330089573D /* memuDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = memuDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B222F1FC1DAA30330089573D /* memuDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = memuDemoTests.swift; sourceTree = "<group>"; };
 		B222F1FE1DAA30330089573D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B222F2031DAA30330089573D /* memuDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = memuDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B222F2071DAA30330089573D /* memuDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = memuDemoUITests.swift; sourceTree = "<group>"; };
 		B222F2091DAA30330089573D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B222F2151DAA33D90089573D /* memuDemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "memuDemo-Bridging-Header.h"; sourceTree = "<group>"; };
-		B222F2161DAA33DA0089573D /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
-		B222F2171DAA33DA0089573D /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
-		B222F2191DAA354D0089573D /* menuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = menuViewController.swift; sourceTree = "<group>"; };
-		B222F21B1DAA36070089573D /* MenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
-		B222F21D1DAA46600089573D /* KhuralScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KhuralScheduleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,19 +114,21 @@
 		B222F1E61DAA30330089573D /* memuDemo */ = {
 			isa = PBXGroup;
 			children = (
-				B222F1E71DAA30330089573D /* AppDelegate.swift */,
-				B222F1E91DAA30330089573D /* ViewController.swift */,
-				B222F2161DAA33DA0089573D /* SWRevealViewController.h */,
-				B222F2171DAA33DA0089573D /* SWRevealViewController.m */,
-				B222F1EB1DAA30330089573D /* Main.storyboard */,
-				B222F21D1DAA46600089573D /* KhuralScheduleViewController.swift */,
-				B222F21B1DAA36070089573D /* MenuCell.swift */,
+				88E2C5A01F49D24C003859DF /* AppDelegate.swift */,
+				88E2C5A11F49D24C003859DF /* ConcretteNewsViewController.swift */,
+				88E2C5A21F49D24C003859DF /* FeedsCell.swift */,
+				88E2C5A31F49D24C003859DF /* ViewController.swift */,
+				88E2C5A41F49D24C003859DF /* KhuralScheduleViewController.swift */,
+				88E2C5A51F49D24C003859DF /* MenuCell.swift */,
+				88E2C5A61F49D24C003859DF /* menuViewController.swift */,
+				88E2C5A71F49D24C003859DF /* AstrologicalForecastViewController.swift */,
 				B222F1EE1DAA30330089573D /* Assets.xcassets */,
-				88358AB71F3F4485000E54DC /* AstrologicalForecastViewController.swift */,
-				B222F1F01DAA30330089573D /* LaunchScreen.storyboard */,
-				B222F1F31DAA30330089573D /* Info.plist */,
-				B222F2151DAA33D90089573D /* memuDemo-Bridging-Header.h */,
-				B222F2191DAA354D0089573D /* menuViewController.swift */,
+				88E2C5B01F49D2A9003859DF /* LaunchScreen.storyboard */,
+				88E2C5B21F49D2A9003859DF /* Main.storyboard */,
+				88E2C5B41F49D2A9003859DF /* Info.plist */,
+				88E2C5B51F49D2A9003859DF /* memuDemo-Bridging-Header.h */,
+				88E2C5B61F49D2A9003859DF /* SWRevealViewController.h */,
+				88E2C5B71F49D2A9003859DF /* SWRevealViewController.m */,
 			);
 			path = memuDemo;
 			sourceTree = "<group>";
@@ -252,9 +259,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B222F1F21DAA30330089573D /* LaunchScreen.storyboard in Resources */,
+				88E2C5BA1F49D2A9003859DF /* Info.plist in Resources */,
+				88E2C5B91F49D2A9003859DF /* Main.storyboard in Resources */,
 				B222F1EF1DAA30330089573D /* Assets.xcassets in Resources */,
-				B222F1ED1DAA30330089573D /* Main.storyboard in Resources */,
+				88E2C5B81F49D2A9003859DF /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,13 +287,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B222F1EA1DAA30330089573D /* ViewController.swift in Sources */,
-				B222F21C1DAA36070089573D /* MenuCell.swift in Sources */,
-				B222F1E81DAA30330089573D /* AppDelegate.swift in Sources */,
-				B222F2181DAA33DA0089573D /* SWRevealViewController.m in Sources */,
-				88358AB81F3F4485000E54DC /* AstrologicalForecastViewController.swift in Sources */,
-				B222F21E1DAA46600089573D /* KhuralScheduleViewController.swift in Sources */,
-				B222F21A1DAA354D0089573D /* menuViewController.swift in Sources */,
+				88E2C5AD1F49D24C003859DF /* MenuCell.swift in Sources */,
+				88E2C5AB1F49D24C003859DF /* ViewController.swift in Sources */,
+				88E2C5AF1F49D24C003859DF /* AstrologicalForecastViewController.swift in Sources */,
+				88E2C5A91F49D24C003859DF /* ConcretteNewsViewController.swift in Sources */,
+				88E2C5AC1F49D24C003859DF /* KhuralScheduleViewController.swift in Sources */,
+				88E2C5BB1F49D2A9003859DF /* SWRevealViewController.m in Sources */,
+				88E2C5AA1F49D24C003859DF /* FeedsCell.swift in Sources */,
+				88E2C5A81F49D24C003859DF /* AppDelegate.swift in Sources */,
+				88E2C5AE1F49D24C003859DF /* menuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,20 +331,20 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		B222F1EB1DAA30330089573D /* Main.storyboard */ = {
+		88E2C5B01F49D2A9003859DF /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				B222F1EC1DAA30330089573D /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		B222F1F01DAA30330089573D /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B222F1F11DAA30330089573D /* Base */,
+				88E2C5B11F49D2A9003859DF /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		88E2C5B21F49D2A9003859DF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				88E2C5B31F49D2A9003859DF /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
