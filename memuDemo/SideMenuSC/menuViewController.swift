@@ -106,9 +106,13 @@ class menuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             let newFrontController = UINavigationController.init(rootViewController: newViewcontroller)            
             revealviewcontroller.pushFrontViewController(newFrontController, animated: true)
         }
-        else if cell.lblMenuname.text! == "Setting"
+        else if cell.lblMenuname.text! == "Историческая справка"
         {
-           print("setting Tapped")
+            //print("Map Tapped")
+            let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let newViewcontroller = mainstoryboard.instantiateViewController(withIdentifier: "HistoryTableViewController") as! HistoryTableViewController
+            let newFrontController = UINavigationController.init(rootViewController: newViewcontroller)            
+            revealviewcontroller.pushFrontViewController(newFrontController, animated: true)
         }
     }
     /*

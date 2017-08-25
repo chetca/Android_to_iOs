@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8807326D1F508934001B8FF0 /* CurrentHistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8807326C1F508934001B8FF0 /* CurrentHistoryController.swift */; };
+		88183F771F5045CD00133A1A /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88183F761F5045CD00133A1A /* HistoryTableViewController.swift */; };
+		88C48B281F504C150096DB83 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C48B271F504C150096DB83 /* HistoryTableViewCell.swift */; };
+		88C48B2A1F504F7A0096DB83 /* JSONTaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C48B291F504F7A0096DB83 /* JSONTaker.swift */; };
 		88E2C5A81F49D24C003859DF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E2C5A01F49D24C003859DF /* AppDelegate.swift */; };
-		88E2C5A91F49D24C003859DF /* ConcretteNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E2C5A11F49D24C003859DF /* ConcretteNewsViewController.swift */; };
 		88E2C5AA1F49D24C003859DF /* FeedsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E2C5A21F49D24C003859DF /* FeedsCell.swift */; };
 		88E2C5AB1F49D24C003859DF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E2C5A31F49D24C003859DF /* ViewController.swift */; };
 		88E2C5AC1F49D24C003859DF /* KhuralScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E2C5A41F49D24C003859DF /* KhuralScheduleViewController.swift */; };
@@ -19,6 +22,7 @@
 		88E2C5B91F49D2A9003859DF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 88E2C5B21F49D2A9003859DF /* Main.storyboard */; };
 		88E2C5BA1F49D2A9003859DF /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 88E2C5B41F49D2A9003859DF /* Info.plist */; };
 		88E2C5BB1F49D2A9003859DF /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 88E2C5B71F49D2A9003859DF /* SWRevealViewController.m */; };
+		88E4585D1F4DDBD10074C530 /* CurrentNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88E4585C1F4DDBD10074C530 /* CurrentNewsViewController.swift */; };
 		B222F1EF1DAA30330089573D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B222F1EE1DAA30330089573D /* Assets.xcassets */; };
 		B222F1FD1DAA30330089573D /* memuDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B222F1FC1DAA30330089573D /* memuDemoTests.swift */; };
 		B222F2081DAA30330089573D /* memuDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B222F2071DAA30330089573D /* memuDemoUITests.swift */; };
@@ -42,8 +46,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8807326C1F508934001B8FF0 /* CurrentHistoryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentHistoryController.swift; sourceTree = "<group>"; };
+		88183F761F5045CD00133A1A /* HistoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryTableViewController.swift; path = ../HistoryTableViewController.swift; sourceTree = "<group>"; };
+		88C48B271F504C150096DB83 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
+		88C48B291F504F7A0096DB83 /* JSONTaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONTaker.swift; sourceTree = "<group>"; };
 		88E2C5A01F49D24C003859DF /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		88E2C5A11F49D24C003859DF /* ConcretteNewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConcretteNewsViewController.swift; path = FeedsSC/ConcretteNewsViewController.swift; sourceTree = "<group>"; };
 		88E2C5A21F49D24C003859DF /* FeedsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedsCell.swift; path = FeedsSC/FeedsCell.swift; sourceTree = "<group>"; };
 		88E2C5A31F49D24C003859DF /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = FeedsSC/ViewController.swift; sourceTree = "<group>"; };
 		88E2C5A41F49D24C003859DF /* KhuralScheduleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KhuralScheduleViewController.swift; path = KhuralScheduleSC/KhuralScheduleViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +63,7 @@
 		88E2C5B51F49D2A9003859DF /* memuDemo-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "memuDemo-Bridging-Header.h"; sourceTree = "<group>"; };
 		88E2C5B61F49D2A9003859DF /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SWRevealViewController.h; path = SWRevealViewController/SWRevealViewController.h; sourceTree = "<group>"; };
 		88E2C5B71F49D2A9003859DF /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SWRevealViewController.m; path = SWRevealViewController/SWRevealViewController.m; sourceTree = "<group>"; };
+		88E4585C1F4DDBD10074C530 /* CurrentNewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentNewsViewController.swift; sourceTree = "<group>"; };
 		B222F1E41DAA30330089573D /* memuDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = memuDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B222F1EE1DAA30330089573D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B222F1F81DAA30330089573D /* memuDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = memuDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -115,7 +123,8 @@
 			isa = PBXGroup;
 			children = (
 				88E2C5A01F49D24C003859DF /* AppDelegate.swift */,
-				88E2C5A11F49D24C003859DF /* ConcretteNewsViewController.swift */,
+				88183F761F5045CD00133A1A /* HistoryTableViewController.swift */,
+				88C48B271F504C150096DB83 /* HistoryTableViewCell.swift */,
 				88E2C5A21F49D24C003859DF /* FeedsCell.swift */,
 				88E2C5A31F49D24C003859DF /* ViewController.swift */,
 				88E2C5A41F49D24C003859DF /* KhuralScheduleViewController.swift */,
@@ -125,10 +134,13 @@
 				B222F1EE1DAA30330089573D /* Assets.xcassets */,
 				88E2C5B01F49D2A9003859DF /* LaunchScreen.storyboard */,
 				88E2C5B21F49D2A9003859DF /* Main.storyboard */,
+				8807326C1F508934001B8FF0 /* CurrentHistoryController.swift */,
 				88E2C5B41F49D2A9003859DF /* Info.plist */,
 				88E2C5B51F49D2A9003859DF /* memuDemo-Bridging-Header.h */,
 				88E2C5B61F49D2A9003859DF /* SWRevealViewController.h */,
 				88E2C5B71F49D2A9003859DF /* SWRevealViewController.m */,
+				88E4585C1F4DDBD10074C530 /* CurrentNewsViewController.swift */,
+				88C48B291F504F7A0096DB83 /* JSONTaker.swift */,
 			);
 			path = memuDemo;
 			sourceTree = "<group>";
@@ -290,10 +302,14 @@
 				88E2C5AD1F49D24C003859DF /* MenuCell.swift in Sources */,
 				88E2C5AB1F49D24C003859DF /* ViewController.swift in Sources */,
 				88E2C5AF1F49D24C003859DF /* AstrologicalForecastViewController.swift in Sources */,
-				88E2C5A91F49D24C003859DF /* ConcretteNewsViewController.swift in Sources */,
+				88E4585D1F4DDBD10074C530 /* CurrentNewsViewController.swift in Sources */,
 				88E2C5AC1F49D24C003859DF /* KhuralScheduleViewController.swift in Sources */,
 				88E2C5BB1F49D2A9003859DF /* SWRevealViewController.m in Sources */,
+				88C48B281F504C150096DB83 /* HistoryTableViewCell.swift in Sources */,
 				88E2C5AA1F49D24C003859DF /* FeedsCell.swift in Sources */,
+				88C48B2A1F504F7A0096DB83 /* JSONTaker.swift in Sources */,
+				8807326D1F508934001B8FF0 /* CurrentHistoryController.swift in Sources */,
+				88183F771F5045CD00133A1A /* HistoryTableViewController.swift in Sources */,
 				88E2C5A81F49D24C003859DF /* AppDelegate.swift in Sources */,
 				88E2C5AE1F49D24C003859DF /* menuViewController.swift in Sources */,
 			);

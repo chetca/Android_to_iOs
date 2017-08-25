@@ -13,117 +13,80 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     @IBOutlet weak var btnMenuButton: UIBarButtonItem!    
     @IBOutlet var tableView: UITableView!
     
+    /* говнокод
     var day: [String] = []
     var shortText: [String] = []        
     var imgURL: [String] = []
    // var image : UIImageView
     var titleText: [String] = []
     var text: [String] = []
-    var json:[String: AnyObject] = [:]
-    let dateFormatter = DateFormatter()
-    let dateString = "Thu, 22 Oct 2015 07:45:00"
+     */
+    
+   // var json:[String: AnyObject] = [:]    
+  //  let dateString = "2015-10-22 07:45"
+    var paramDict:[String:[String]] = Dictionary()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()     
 
         // Do any additional setup after loading the view, typically from a nib.
-        if revealViewController() != nil {
-
-            btnMenuButton.target = revealViewController()
-            btnMenuButton.action = #selector(SWRevealViewController.revealToggle(_:))                        
-
+        if revealViewController() != nil {                        
             
-            loadAstrologicalData(baseURL: "file:///Users/dugar/Downloads/feed.json")
+            btnMenuButton.target = revealViewController()
+            
+            //news/zurhay[1',1..19]
+            
+            btnMenuButton.action = #selector(SWRevealViewController.revealToggle(_:))
+            
+            
+            paramDict = JSONTaker.shared.loadData(baseURL: "file:///Users/dugar/Downloads/feed.json", paramNames: ["title","date", "short",  "image", "text"])
+            //loadAstrologicalData(baseURL: "file:///Users/dugar/Downloads/feed.json")
+            
+            //print (paramDict)
+            
+             print(paramDict.count, "in load")
         }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-
-    func loadAstrologicalData(baseURL :String) {
-        let url=URL(string: baseURL)
-        do {
-            let allContactsData = try Data(contentsOf: (url)!)
-            let allContacts = try JSONSerialization.jsonObject(with: allContactsData, options: JSONSerialization.ReadingOptions.allowFragments) as! [String : AnyObject]
-            
-            if let arrJSON = allContacts["page"] {           
-                print (arrJSON)    
-                for var index: Int in 0...arrJSON.count-1 {
-                    let aObject = arrJSON[index] as! [String : AnyObject]  
-                    titleText.append(aObject["title"] as! String)
-                    shortText.append(aObject["short"] as! String)
-                    day.append(aObject["date"] as! String)
-                    imgURL.append(aObject["image"] as! String)
-                    //text.append(aObject["text"] as! String)
-                    
-                }
-                                                                                 
-            }
-                        
-            self.tableView.reloadData()                        
-        }
-        catch 
-        {
-            print(error)
-        }            
-    }
-    
+    }    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.day.count;
+         print(paramDict["title"]?.count, "in numberOfRows")
+        return (paramDict["title"]?.count)!
     }
-    
-    var indexCell: Int = 0
+        
     var dataString: [String] = []
     
     @objc(tableView:didSelectRowAtIndexPath:) func tableView(_ tableView: UITableView,didSelectRowAt indexPath: IndexPath) {
-        print("You selected name : "+day[indexPath.row])   
+        print("You selected name : "+(self.paramDict["date"]?[indexPath.row])!)
+                
         
-        indexCell = indexPath.row
-        
-       // if self.titleText[indexPath.row] != nil && self.text[indexPath.row] != nil && ///self.dataString[indexPath.row] != nil && self.imgURL[indexPath.row] != "" {/
-            performSegue(withIdentifier: "segue", sender: self)
-        //}                
+        StringLblText   = (self.paramDict["title"]?[indexPath.row])! 
+        StringText = (self.paramDict["text"]?[indexPath.row])!
+        StringDataField = (self.paramDict["date"]?[indexPath.row])!
+        StringUrlImg    = (self.paramDict["image"]?[indexPath.row])!  
+         print(paramDict.count, "in select")
+        performSegue(withIdentifier: "segue", sender: self)                       
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        /*
-        var currentNews = segue.destination as! ConcretteNewsViewController
-        
-        
-        currentNews.StringLblText = self.titleText[indexCell]
-        currentNews.StringTextNews = self.text[indexCell]
-        currentNews.StringDataField = dataString[indexCell]
-        currentNews.StringUrlImg = self.imgURL[indexCell]
-        */
+    override func viewDidAppear(_ animated: Bool) {
+        print(paramDict.count, "in appear")
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: FeedsCell = tableView.dequeueReusableCell(withIdentifier: "FeedsCell", for: indexPath) as! FeedsCell                        
-                
-        dateFormatter.dateFormat = "EEE, dd MMM yyyy hh:mm:ss"
-        dateFormatter.locale = Locale.init(identifier: "en_GB")        
-        let dateObj = dateFormatter.date(from: self.day[indexPath.row])
-        dateFormatter.dateFormat = "dd-MM-yyyy   hh:mm:ss"        
-        cell.dataTime.text = dateFormatter.string(from: dateObj!)
-        //dataString.append(cell.dataTime.text!)
-    
-       
-        cell.titleText.text = self.titleText[indexPath.row]
-        cell.shortText.text = self.shortText[indexPath.row]
-       
-        //let imageee : UIImageView = UIImageView()	
-        print("Хуяк")
-        let pic = self.imgURL[indexPath.row]
-        print(pic)
-        let url = URL(string: pic)
-        let data = try? Data(contentsOf: url!)
         
-        if let imageData = data {
-            cell.img.image = UIImage(data: data!)
-        }                                 
+        
+        print (indexPath.row, "INDEXXXXXXXXX")                
+                                
+        cell.dataTime.text = JSONTaker.shared.convertDate(date: (self.paramDict["date"]?[indexPath.row])!)
+        cell.titleText.text = self.paramDict["title"]?[indexPath.row]
+        cell.shortText.text = self.paramDict["short"]?[indexPath.row]                        	            
+        cell.img.image = JSONTaker.shared.loadImg(url: (self.paramDict["image"]?[indexPath.row])!)                                             
         
         //cell.shortText.sizeToFit()
         

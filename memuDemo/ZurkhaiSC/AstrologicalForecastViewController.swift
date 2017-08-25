@@ -13,9 +13,9 @@ class AstrologicalForecastViewController: UIViewController,UINavigationBarDelega
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var menu: UIBarButtonItem!
     
-    var day: [String] = []
-    var zurkhay: [String] = []        
-    var json:[String: AnyObject] = [:]
+    var day: [String] = []           
+    var texts: [String] = []
+    var paramDict:[String:[String]] = Dictionary()    
     
     override func viewDidLoad() {
         super.viewDidLoad()        
@@ -25,7 +25,7 @@ class AstrologicalForecastViewController: UIViewController,UINavigationBarDelega
         menu.target = revealViewController()
         menu.action = #selector(SWRevealViewController.revealToggle(_:))
         
-        loadAstrologicalData(baseURL: "file:///Users/dugar/Downloads/generated.json")
+        
         //http://localhost:8080/budd/http/api/zurkhay           
         
         day.append("Понедельник")
@@ -36,42 +36,26 @@ class AstrologicalForecastViewController: UIViewController,UINavigationBarDelega
         day.append("Суббота")
         day.append("Воскресение")
         
+        for var i in 1...7
+        {
+            texts.append("text" + String(i))
+        }
+        
+        
+        paramDict = JSONTaker.shared.loadData(baseURL: "file:///Users/dugar/Downloads/generated.json", paramNames: texts)
+        
+        print ("paramDict.count", paramDict.count)
+        
+        
         tableView.contentInset = UIEdgeInsetsMake(20.0, 0.0, 0.0, 0.0)        
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 44             
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-    
-    func loadAstrologicalData(baseURL :String) {
-        let url=URL(string: baseURL)
-        do {
-            let allContactsData = try Data(contentsOf: (url)!)
-            let allContacts = try JSONSerialization.jsonObject(with: allContactsData, options: JSONSerialization.ReadingOptions.allowFragments) as! [String : AnyObject]
-            
-            if let arrJSON = allContacts["page"] {           
-                print (arrJSON)                  
-                let aObject = arrJSON[0] as! [String : AnyObject]                    
-                for i in 1...7 {
-                    zurkhay.append(aObject["text"+String(i)] as! String)                    
-                }                                                                    
-            }
-            
-            
-            print(allContacts)
-            print(day)
-            print(zurkhay)
-            self.tableView.reloadData()
-            
-        }
-        catch 
-        {
-            print(error)
-        }            
-    }
+    }        
     
     func tableView(_ tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
         return self.day.count;
@@ -83,12 +67,16 @@ class AstrologicalForecastViewController: UIViewController,UINavigationBarDelega
     func tableView(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
         
-        
+    
         if !(cell != nil) {
-            cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
+            cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell") //if cell is nil, get pointer to new one
         }
-        cell?.textLabel?.text=self.day[indexPath.row] + "\n" + self.zurkhay[indexPath.row]
-        cell?.textLabel?.numberOfLines = 0
+
+        
+        if (indexPath.row >= 0 && indexPath.row <= 6) {
+            cell?.textLabel?.text=self.day[indexPath.row] + "\n" + (self.paramDict[texts[indexPath.row]]?[0])!
+            cell?.textLabel?.numberOfLines = 0            
+        }
         
         return cell!
     }
