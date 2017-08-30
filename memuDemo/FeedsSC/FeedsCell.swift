@@ -14,19 +14,18 @@ class FeedsCell: UITableViewCell {
     @IBOutlet var titleText: UILabel!
     @IBOutlet var shortText: UILabel!
     @IBOutlet var dataTime: UILabel!    
+    @IBOutlet var spinner: UIActivityIndicatorView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code        
+  
         self.shortText.sizeToFit()
-    }
-
-    
+        self.titleText.sizeToFit()
+        self.img.sizeToFit()
+    }    
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        
         // Configure the view for the selected state            
-    }               
-
+    }
 }

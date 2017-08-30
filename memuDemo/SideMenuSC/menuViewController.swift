@@ -11,24 +11,74 @@ import UIKit
 class menuViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     
-    @IBOutlet weak var RandomTextUnderPict: UILabel!
-    
+    @IBOutlet weak var RandomTextUnderPict: UILabel!    
     @IBOutlet weak var tblTableView: UITableView!
-    @IBOutlet weak var imgProfile: UIImageView!
+    @IBOutlet weak var imgProfile: UIImageView!        
+    @IBOutlet var imgXConstraint: NSLayoutConstraint!    
+    @IBOutlet var imgWidthConstraint: NSLayoutConstraint!
     
     var randFrazes = ["Да пребудет с вами Будда",
                       "Пусть вам сопутствует удача",
                       "Пусть вас защищают все боги",
                       "Улыбнитесь, всё будет хорошо",
                       "Будьте сильны духом",
-                      "Будьте в добром здравии"]
-    
-    var randIndex = arc4random_uniform(5)
-    
+                      "Будьте в добром здравии"]    
+    var viewControllersDict: [String:String] = ["Новости":"ViewController",
+                                                "Расписание хуралов":"KhuralScheduleViewController",
+                                                "Астрологический прогноз":"AstrologicalForecastViewController",
+                                                "Историческая справка":"HistoryTableViewController",
+                                                "Видеоальбом":"VideoAlbumViewController",
+                                                "Лекции буддийского университета":"LecturesTableViewController",
+                                                "Дацаны Сангхи":"DatsansTableViewController"]    
+    var randIndex = arc4random_uniform(5)    
     var ManuNameArray:Array = [String]()
-    var iconArray:Array = [UIImage]()
+    var iconArray:Array = [UIImage]()    
+    let blackView = UIView()
+    
+    func handleDissmis ()
+    {
+        if let window = UIApplication.shared.keyWindow {
+            UIView.animate(withDuration: 0.725, delay: 0, usingSpringWithDamping: 1.1, initialSpringVelocity: 0.85, options: .curveEaseOut, animations: {
+                self.blackView.frame = CGRect(x: 0, y: 0, width: window.frame.width, height: window.frame.height)
+                self.blackView.alpha = 0
+            }, completion: nil)
+        
+            revealViewController().revealToggle(animated: true)
+        }
+    }
+    
+    func makeDark ()
+    {
+        if let window = UIApplication.shared.keyWindow {
+            blackView.backgroundColor = UIColor(white: 0, alpha: 0.5)
+            blackView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleDissmis)))
+            
+            window.addSubview(blackView)
+            blackView.frame = CGRect(x: 0, y: 0, width: window.frame.width, height: window.frame.height)
+            blackView.alpha = 0
+            UIView.animate(withDuration: 0.725, delay: 0, usingSpringWithDamping: 1.1, initialSpringVelocity: 0.8, options: .curveEaseOut, animations: {
+                self.blackView.alpha = 1
+                self.blackView.frame = CGRect(x: window.frame.width*0.8, y: 0, width: window.frame.width, height: window.frame.height)
+            }, completion: nil)
+            
+        }
+    }           
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        revealViewController().toggleAnimationType = SWRevealToggleAnimationType.spring
+        revealViewController().toggleAnimationDuration = 0.725
+        
+        makeDark()                        
+        
+        if let window = UIApplication.shared.keyWindow {
+            revealViewController().rearViewRevealWidth = window.frame.width * 0.8
+            revealViewController().draggableBorderWidth = window.frame.width * 0.05
+            imgXConstraint.constant = window.frame.width * 0.4 - imgWidthConstraint.constant*0.5
+            
+        }
+        
         ManuNameArray = [
             "Новости",
             "Расписание хуралов",
@@ -54,8 +104,9 @@ class menuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        var randIndex = arc4random_uniform(5)
+        let randIndex = arc4random_uniform(5)
         RandomTextUnderPict.text = randFrazes[Int(randIndex)]
+        makeDark()
     }
 
     override func didReceiveMemoryWarning() {
@@ -77,52 +128,19 @@ class menuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        let revealviewcontroller:SWRevealViewController = self.revealViewController()        
+        handleDissmis()
+        let _:SWRevealViewController = self.revealViewController()        
         let cell:MenuCell = tableView.cellForRow(at: indexPath) as! MenuCell        
-        print(cell.lblMenuname.text!)
+        print(cell.lblMenuname.text!)        
         
-        if cell.lblMenuname.text! == "Новости"
-        {
-            //print("Home Tapped")
-            let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let newViewcontroller = mainstoryboard.instantiateViewController(withIdentifier: "ViewController") as! ViewController
-            let newFrontController = UINavigationController.init(rootViewController: newViewcontroller)            
-            revealviewcontroller.pushFrontViewController(newFrontController, animated: true)
-        }        
-        else if cell.lblMenuname.text! == "Расписание хуралов"
-        {
-            //print("message Tapped")           
-            let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let newViewcontroller = mainstoryboard.instantiateViewController(withIdentifier: "KhuralScheduleViewController") as! KhuralScheduleViewController
-            let newFrontController = UINavigationController.init(rootViewController: newViewcontroller)            
-            revealviewcontroller.pushFrontViewController(newFrontController, animated: true)
-        }
-        else if cell.lblMenuname.text! == "Астрологический прогноз"
-        {
-            //print("Map Tapped")
-            let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let newViewcontroller = mainstoryboard.instantiateViewController(withIdentifier: "AstrologicalForecastViewController") as! AstrologicalForecastViewController
-            let newFrontController = UINavigationController.init(rootViewController: newViewcontroller)            
-            revealviewcontroller.pushFrontViewController(newFrontController, animated: true)
-        }
-        else if cell.lblMenuname.text! == "Историческая справка"
-        {
-            //print("Map Tapped")
-            let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-            let newViewcontroller = mainstoryboard.instantiateViewController(withIdentifier: "HistoryTableViewController") as! HistoryTableViewController
-            let newFrontController = UINavigationController.init(rootViewController: newViewcontroller)            
-            revealviewcontroller.pushFrontViewController(newFrontController, animated: true)
-        }
+        callViewController(controllerName: viewControllersDict[cell.lblMenuname.text!]!)                           
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
+    private func callViewController (controllerName: String)
+    {
+        let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let newViewcontroller = mainstoryboard.instantiateViewController(withIdentifier: controllerName)            
+        let newFrontController = UINavigationController.init(rootViewController: newViewcontroller)            
+        revealViewController().pushFrontViewController(newFrontController, animated: true)
+    }    
 }

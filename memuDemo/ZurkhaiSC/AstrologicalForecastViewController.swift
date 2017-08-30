@@ -42,7 +42,7 @@ class AstrologicalForecastViewController: UIViewController,UINavigationBarDelega
         }
         
         
-        paramDict = JSONTaker.shared.loadData(baseURL: "file:///Users/dugar/Downloads/generated.json", paramNames: texts)
+        paramDict = JSONTaker.shared.loadData(API: "zurkhay", paramNames: texts)
         
         print ("paramDict.count", paramDict.count)
         
