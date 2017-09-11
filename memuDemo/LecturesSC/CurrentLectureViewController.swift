@@ -17,7 +17,7 @@ class CurrentLectureViewController: UIViewController {
     @IBOutlet var textLbl: UILabel!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad()            
         
         dateLbl.text = StringDataField
         titleLbl.text = StringLblText

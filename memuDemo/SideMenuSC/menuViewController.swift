@@ -26,21 +26,25 @@ class menuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     var viewControllersDict: [String:String] = ["Новости":"ViewController",
                                                 "Расписание хуралов":"KhuralScheduleViewController",
                                                 "Астрологический прогноз":"AstrologicalForecastViewController",
+                                                "Дацаны Сангхи":"DatsansTableViewController",
                                                 "Историческая справка":"HistoryTableViewController",
-                                                "Видеоальбом":"VideoAlbumViewController",
-                                                "Лекции буддийского университета":"LecturesTableViewController",
-                                                "Дацаны Сангхи":"DatsansTableViewController"]    
-    var randIndex = arc4random_uniform(5)    
+                                                "Лекции буддийского университета":"LecturesTableViewController",                                                                                                
+                                                "Фото":"PhotoAlbumTableViewController",
+                                                "Видео":"VideoAlbumViewController",
+                                                "РазРабы":"DevelopersViewController"]
+    
+    var randIndex = arc4random_uniform(5)
     var ManuNameArray:Array = [String]()
-    var iconArray:Array = [UIImage]()    
-    let blackView = UIView()
+    var iconArray:Array = [UIImage]()   
+    var didLoadCalled = true
     
     func handleDissmis ()
     {
         if let window = UIApplication.shared.keyWindow {
-            UIView.animate(withDuration: 0.725, delay: 0, usingSpringWithDamping: 1.1, initialSpringVelocity: 0.85, options: .curveEaseOut, animations: {
-                self.blackView.frame = CGRect(x: 0, y: 0, width: window.frame.width, height: window.frame.height)
-                self.blackView.alpha = 0
+            //magic numbers ALERT !!!
+            UIView.animate(withDuration: 0.68, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.88, options: .curveEaseOut, animations: { 
+                blackView.frame = CGRect(x: 0, y: 0, width: window.frame.width, height: window.frame.height)
+                blackView.alpha = 0
             }, completion: nil)
         
             revealViewController().revealToggle(animated: true)
@@ -56,9 +60,10 @@ class menuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             window.addSubview(blackView)
             blackView.frame = CGRect(x: 0, y: 0, width: window.frame.width, height: window.frame.height)
             blackView.alpha = 0
+            //magic numbers ALERT !!!
             UIView.animate(withDuration: 0.725, delay: 0, usingSpringWithDamping: 1.1, initialSpringVelocity: 0.8, options: .curveEaseOut, animations: {
-                self.blackView.alpha = 1
-                self.blackView.frame = CGRect(x: window.frame.width*0.8, y: 0, width: window.frame.width, height: window.frame.height)
+                blackView.alpha = 1
+                blackView.frame = CGRect(x: window.frame.width*0.8, y: 0, width: window.frame.width, height: window.frame.height)
             }, completion: nil)
             
         }
@@ -66,9 +71,10 @@ class menuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        JSONTaker.shared.setStatusBarColorOrange()
         
         revealViewController().toggleAnimationType = SWRevealToggleAnimationType.spring
-        revealViewController().toggleAnimationDuration = 0.725
+        revealViewController().toggleAnimationDuration = 0.725 //magic numbers ALERT !!!
         
         makeDark()                        
         
@@ -79,6 +85,8 @@ class menuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             
         }
         
+        //var recon = UIScreenEdgePanGestureRecognizer()
+        
         ManuNameArray = [
             "Новости",
             "Расписание хуралов",
@@ -86,61 +94,84 @@ class menuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
             "Дацаны Сангхи", 
             "Историческая справка", 
             "Лекции буддийского университета",
-            "Фотоальбом",
-            "Видеоальбом",
+            "Фото",
+            "Видео",
             "РазРабы"
         ]
-        iconArray = [UIImage(named:"home")!,
-                     UIImage(named:"defaultIcon")!,
-                     UIImage(named:"defaultIcon")!,
-                     UIImage(named:"defaultIcon")!
+        iconArray = [UIImage(named:"news")!,
+                     UIImage(named:"hurals")!,
+                     UIImage(named:"zurkhai")!,
+                     UIImage(named:"datsans")!,
+                     UIImage(named:"history")!,
+                     UIImage(named:"lectures")!,
+                     UIImage(named:"album")!,
+                     UIImage(named:"video")!,
+                     UIImage(named:"settings")!
         ]                    
         
         imgProfile.layer.masksToBounds = false
         imgProfile.clipsToBounds = true 
-        // Do any additional setup after loading the view.
-        
-        RandomTextUnderPict.text = randFrazes[Int(randIndex)]
-    }
+        // Do any additional setup after loading the view.        
+    }        
     
     override func viewDidAppear(_ animated: Bool) {
         let randIndex = arc4random_uniform(5)
         RandomTextUnderPict.text = randFrazes[Int(randIndex)]
         makeDark()
+        JSONTaker.shared.setStatusBarColorOrange()     
+        
+        if (didLoadCalled == true) {
+            (self.tblTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! MenuCell).setSelected(true, animated: true)            
+        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return ManuNameArray.count
-        
+
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell", for: indexPath) as! MenuCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell", for: indexPath) as! MenuCell        
         
         cell.lblMenuname.text! = ManuNameArray[indexPath.row]
-        cell.imgIcon.image = iconArray[1]
-        cell.frame.size = CGSize(width: cell.frame.size.width, height: 200)
+        cell.imgIcon.image = iconArray[indexPath.row]
+        cell.frame.size = CGSize(width: cell.frame.size.width, height: 200)                  
         
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         handleDissmis()
-        let _:SWRevealViewController = self.revealViewController()        
-        let cell:MenuCell = tableView.cellForRow(at: indexPath) as! MenuCell        
+        let _:SWRevealViewController = self.revealViewController()
+        let cell:MenuCell = tableView.cellForRow(at: indexPath) as! MenuCell
         print(cell.lblMenuname.text!)        
         
-        callViewController(controllerName: viewControllersDict[cell.lblMenuname.text!]!)                           
+        if (didLoadCalled == true) {
+            if (indexPath.row != 0) {
+                (self.tblTableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! MenuCell).setSelected(false, animated: true)                     
+            }
+            didLoadCalled = false
+        }
+
+        callViewController(controllerName: cell.lblMenuname.text!)
     }
-    
-    private func callViewController (controllerName: String)
-    {
+
+    private func callViewController (controllerName: String) {
+        for i in 0...ManuNameArray.count-1 {
+            if ManuNameArray[i] == controllerName {
+                JSONTaker.shared.location = i
+            }
+        }
+
+        print(JSONTaker.shared.location)
         let mainstoryboard:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let newViewcontroller = mainstoryboard.instantiateViewController(withIdentifier: controllerName)            
-        let newFrontController = UINavigationController.init(rootViewController: newViewcontroller)            
+        let newViewcontroller = mainstoryboard.instantiateViewController(withIdentifier: viewControllersDict[controllerName]!)
+        let newFrontController = UINavigationController.init(rootViewController: newViewcontroller)
         revealViewController().pushFrontViewController(newFrontController, animated: true)
     }    
 }

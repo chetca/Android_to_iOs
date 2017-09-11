@@ -20,7 +20,7 @@ class CurrentNewsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
         lblText.text = StringLblText
         dataField.text = StringDataField
         textNews.text = StringText             

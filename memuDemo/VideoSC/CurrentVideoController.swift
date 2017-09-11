@@ -17,7 +17,7 @@ class CurrentVideoController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+                 
         titleLbl.text = StringLblText
         descriptionLbl.text = StringText
         

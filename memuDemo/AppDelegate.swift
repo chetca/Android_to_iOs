@@ -11,17 +11,22 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var window: UIWindow?
-
+    var window: UIWindow?    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-       
+        self.self.self.self.self //<<-- just for fun
         
         UINavigationBar.appearance().tintColor = UIColor.white
-        UINavigationBar.appearance().barTintColor = UIColor(colorLiteralRed: 1, green: 0.84, blue: 0, alpha: 1)
-        UIApplication.shared.statusBarStyle = .lightContent    
-        
+        UINavigationBar.appearance().barTintColor = UIColor(colorLiteralRed: 1, 
+                                                            green: 0.75686275, 
+                                                            blue: 0.02745098, 
+                                                            alpha: 1)
+                
+        UIApplication.shared.statusBarStyle = .lightContent        
+                
+        //let navBackgroundImage:UIImage! = UIImage(named: "statusBarBG")
+        //UINavigationBar.appearance().setBackgroundImage(navBackgroundImage, for: .default)                
         
         return true
     }   

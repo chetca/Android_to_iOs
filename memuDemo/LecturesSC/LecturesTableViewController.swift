@@ -17,7 +17,7 @@ class LecturesTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         if revealViewController() != nil {                        
             
             btnMenuButton.target = revealViewController()                        

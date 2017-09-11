@@ -18,7 +18,7 @@ class AstrologicalForecastViewController: UIViewController,UINavigationBarDelega
     var paramDict:[String:[String]] = Dictionary()    
     
     override func viewDidLoad() {
-        super.viewDidLoad()        
+        super.viewDidLoad()      
         
         //revealViewController().rearViewRevealWidth = 270
         
@@ -72,6 +72,8 @@ class AstrologicalForecastViewController: UIViewController,UINavigationBarDelega
             cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell") //if cell is nil, get pointer to new one
         }
 
+        
+        cell?.textLabel?.font = UIFont(name: "Helvetica", size: 13)                
         
         if (indexPath.row >= 0 && indexPath.row <= 6) {
             cell?.textLabel?.text=self.day[indexPath.row] + "\n" + (self.paramDict[texts[indexPath.row]]?[0])!

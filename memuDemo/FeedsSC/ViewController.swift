@@ -8,26 +8,48 @@
 
 import UIKit
 
-class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
-    
+class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {        
     
     @IBOutlet weak var btnMenuButton: UIBarButtonItem!    
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var navBar: UINavigationItem!
         
     var paramDict:[String:[String]] = Dictionary()
     
+    /*
+    @IBAction func makeDark(_ sender: Any) {
+        if let window = UIApplication.shared.keyWindow {
+            blackView.backgroundColor = UIColor(white: 0, alpha: 0.5)
+            
+            blackView.alpha = 0
+            blackView.bringSubview(toFront: self.view)
+            //magic numbers ALERT !!!
+            UIView.animate(withDuration: 0.725, delay: 0, usingSpringWithDamping: 1.1, initialSpringVelocity: 0.8, options: .curveEaseOut, animations: {
+                blackView.alpha = 1
+            }, completion: nil)
+            
+            window.addSubview(blackView)
+        }
+    }
+        */
+    
     override func viewDidLoad() {
-        super.viewDidLoad()                     
+        super.viewDidLoad()                                                                                                
         
         // Do any additional setup after loading the view, typically from a nib.
         if revealViewController() != nil {                        
             
             btnMenuButton.target = revealViewController()                        
-            btnMenuButton.action = #selector(SWRevealViewController.revealToggle(_:))
+            btnMenuButton.action = #selector(SWRevealViewController.revealToggle(_:))            
             
-            
-            paramDict = JSONTaker.shared.loadData(API: "news", paramNames: ["title","date", "short",  "image", "text"])        
-        }
+            paramDict = JSONTaker.shared.loadData(API: "news", paramNames: ["title","date", "short",  "image", "text"])
+        }                                    
+    }
+    
+    
+    
+    override func viewDidAppear(_ animated: Bool) {        
+        JSONTaker.shared.setStatusBarColorOrange()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -53,8 +75,8 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
                                 
         cell.dataTime.text = JSONTaker.shared.convertDate(date: (self.paramDict["date"]?[indexPath.row])!)
         cell.titleText.text = self.paramDict["title"]?[indexPath.row]
-        cell.shortText.text = self.paramDict["short"]?[indexPath.row]                        	            
-        JSONTaker.shared.loadImg(imgURL: (self.paramDict["image"]?[indexPath.row])!, img: cell.img, spinner: cell.spinner)                                             
+        cell.shortText.text = self.paramDict["short"]?[indexPath.row]
+        JSONTaker.shared.loadImg(imgURL: (self.paramDict["image"]?[indexPath.row])!, img: cell.img, spinner: cell.spinner)
         
         //cell.shortText.sizeToFit()        
         
