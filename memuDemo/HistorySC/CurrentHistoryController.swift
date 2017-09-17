@@ -23,6 +23,9 @@ class CurrentHistoryController: UIViewController {
         dataTime.text = JSONTaker.shared.convertDate(date: StringDataField)
         text.text = StringText
         titleText.text = StringLblText
+        
+        text.setHTML(html: text.text!)
+        
         JSONTaker.shared.loadImg(imgURL: StringUrlImg, img: img, spinner: spinner)
     }
     

@@ -25,6 +25,10 @@ class CurrentLectureViewController: UIViewController {
         
         JSONTaker.shared.loadVideo(videoCode: StringVideoID, myWebView: videoFrame)
         
+        if !videoFrame.isLoading {
+            videoFrame.isHidden = false
+        }
+        
         // Do any additional setup after loading the view.
     }
 

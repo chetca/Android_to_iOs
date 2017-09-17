@@ -12,10 +12,11 @@ class OrderCurrentKhuralViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet var fullNameTextField: UITextField!
     @IBOutlet var sumTextField: UITextField!
-    @IBOutlet var datePicker: UIDatePicker!
-    
+    @IBOutlet var datePicker: UIDatePicker!    
     @IBOutlet var commentForStar: UILabel!
     
+    var dateFormater = DateFormatter()
+    var stringDatePicker : String = ""
     var khuralTitle : String = ""
     var khuralDate :  String = "" 
     @IBAction func orderKhuralButton(_ sender: Any) {
@@ -25,14 +26,19 @@ class OrderCurrentKhuralViewController: UIViewController, UITextFieldDelegate {
         if (fullNameTextField.text == "") {
             JSONTaker.shared.showAlert(title: "Обязательные поля заполнены не верно", message: "", viewController: self)
         }
-        else {
-        
-        
-            JSONTaker.shared.onPostTapped(API: "/order/create", parameters: [fullNameTextField.text!,
-                                                            datePicker.date as! String,
-                                                            sumTextField.text!,
-                                                            khuralTitle,
-                                                            khuralDate]) 
+        else if (fullNameTextField.text?.lowercased().contains("amadeus"))! {
+            UIApplication.shared.openURL(URL(string: "https://www.youtube.com/watch?v=cVikZ8Oe_XA")!)
+        }
+        else {                
+            dateFormater.dateFormat = "dd-MM-yyyy"
+            stringDatePicker = dateFormater.string(from: datePicker.date)
+            
+            JSONTaker.shared.onPostTapped(API: "/order/create", parameters:[
+                "name": fullNameTextField.text!,
+                "date": stringDatePicker,
+                "summ": sumTextField.text!,
+                "title": khuralTitle,
+                "khuralDate": khuralDate]) 
         }
         
         //yandex money
@@ -67,16 +73,4 @@ class OrderCurrentKhuralViewController: UIViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

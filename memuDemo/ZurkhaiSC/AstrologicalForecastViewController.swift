@@ -49,7 +49,9 @@ class AstrologicalForecastViewController: UIViewController,UINavigationBarDelega
         
         tableView.contentInset = UIEdgeInsetsMake(20.0, 0.0, 0.0, 0.0)        
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 44             
+        tableView.estimatedRowHeight = 44 
+        
+        tableView.allowsSelection = false
     }
     
     override func didReceiveMemoryWarning() {

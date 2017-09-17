@@ -30,6 +30,8 @@ class DatsansTableViewController: UITableViewController {
             tableView.rowHeight = UITableViewAutomaticDimension
             tableView.estimatedRowHeight = 44   
         }
+        
+        tableView.allowsSelection = false
     }
 
     override func didReceiveMemoryWarning() {

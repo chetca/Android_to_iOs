@@ -34,7 +34,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         */
     
     override func viewDidLoad() {
-        super.viewDidLoad()                                                                                                
+        super.viewDidLoad()                                                                                                        
         
         // Do any additional setup after loading the view, typically from a nib.
         if revealViewController() != nil {                        

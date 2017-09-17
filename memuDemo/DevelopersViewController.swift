@@ -13,11 +13,18 @@ class DevelopersViewController: UIViewController {
     @IBOutlet var img: UIImageView!    
     @IBOutlet var btnMenuButton: UIBarButtonItem!
     
+    @IBOutlet var amadGesRec: UILongPressGestureRecognizer!
+    
+    func openMe() {UIApplication.shared.openURL(URL(string: "https://www.youtube.com/watch?v=cVikZ8Oe_XA")!)}
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         img.image = UIImage(named: "ы")
         
+        amadGesRec.addTarget(self, action: #selector(openMe))
+        
+        self.view.addGestureRecognizer(amadGesRec)
         
         if revealViewController() != nil {                                    
             btnMenuButton.target = revealViewController()                        

@@ -57,6 +57,7 @@ class HistoryTableViewController: UITableViewController
             
         cell.titleLbl.sizeToFit()
         cell.shortText.sizeToFit()
+        cell.img.sizeToFit()
                         
         return cell
     }

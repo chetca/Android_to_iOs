@@ -23,6 +23,7 @@ class menuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
                       "Улыбнитесь, всё будет хорошо",
                       "Будьте сильны духом",
                       "Будьте в добром здравии"]    
+    
     var viewControllersDict: [String:String] = ["Новости":"ViewController",
                                                 "Расписание хуралов":"KhuralScheduleViewController",
                                                 "Астрологический прогноз":"AstrologicalForecastViewController",
@@ -72,11 +73,10 @@ class menuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     override func viewDidLoad() {
         super.viewDidLoad()
         JSONTaker.shared.setStatusBarColorOrange()
+        self.view.layer.shadowRadius = 10;
         
         revealViewController().toggleAnimationType = SWRevealToggleAnimationType.spring
-        revealViewController().toggleAnimationDuration = 0.725 //magic numbers ALERT !!!
-        
-        makeDark()                        
+        revealViewController().toggleAnimationDuration = 0.725 //magic numbers ALERT !!!                                                
         
         if let window = UIApplication.shared.keyWindow {
             revealViewController().rearViewRevealWidth = window.frame.width * 0.8

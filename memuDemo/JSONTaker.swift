@@ -6,8 +6,20 @@
 //  Copyright © 2017 Parth Changela. All rights reserved.
 //
 
-import Foundation
 import UIKit
+
+extension UILabel {
+    func setHTML(html: String) {           
+        do {               
+            let at : NSAttributedString = try NSAttributedString(data: html.data(using: .utf8)!, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: String.Encoding.utf8.rawValue], documentAttributes: nil);
+                        
+            self.attributedText = at;
+        } catch {
+            self.text = html;
+        }
+        font = UIFont(name: "Helvetica", size: 15)
+    }
+}
 
 var StringLblText       : String = ""
 var StringText          : String = ""
@@ -17,7 +29,7 @@ var StringVideoID       : String = ""
 var StringImgURLs       : [String] = [String]()
 var StringNavBarTitle   : String = ""
 
-let baseURL = "file:///Users/dugar/Desktop/Andr%20to%20IOS%20000001/"
+let baseURL = "file:///Users/dugar/Desktop/AndrtoIOS/FANATICS/"
 let donateURL = "http://www.buddhismofrussia.ru/donate/"
 let blackView = UIView()
 
@@ -29,20 +41,41 @@ class JSONTaker
     
     
     public var location = 0;    
-    var json:[String:AnyObject] = [:]
+    var json:[String:AnyObject] = [String : AnyObject]()
     let dateFormatter = DateFormatter()          
     
     private func loadJSON (API: String)
     {
         let url=URL(string: baseURL + API + ".json")
+        var allData = Data()
         do {
-            let allData = try Data(contentsOf: (url)!)
-            json = try JSONSerialization.jsonObject(with: allData, options: JSONSerialization.ReadingOptions.allowFragments) as! [String : AnyObject]
+            allData = try Data(contentsOf: (url)!)                                
             
-           
+            json = try JSONSerialization.jsonObject(with: allData, options: JSONSerialization.ReadingOptions.allowFragments) as! [String : AnyObject]                                                
         }
         catch {
             print(error)
+            //someone developed the server, which can only send FUCKING invalid json file (whith out FUCKING key value).
+            //So that there we add key value by reading the data and changing it
+            //data -> String -> [+ "\"page\":" +] -> data -> JSONSerialization 
+            
+            var strJSON = String(data: allData, encoding: .utf8)
+            strJSON?.remove(at: (strJSON?.startIndex)!)
+            strJSON?.remove(at: (strJSON?.startIndex)!)
+            
+            var validStrJSON = "{\n  \"page\":" + strJSON!
+            
+            let arr: [UInt8] = Array(validStrJSON.utf8)
+            allData = Data(arr)
+            
+            do {
+                json = try JSONSerialization.jsonObject(with: allData, options: JSONSerialization.ReadingOptions.allowFragments) as! [String : AnyObject]
+                
+                print ("error above has been solved !!! \n >_> \n <_<")
+            }
+            catch {
+                print (error)
+            }                                    
         }
     }
     
@@ -50,25 +83,39 @@ class JSONTaker
     {
         loadJSON(API: API)
         var Localparams:[String:[String]] = Dictionary()
-        do {
-            if let JSON = json["page"] {           
-                //print (JSON)
+        do {            
+            if let JSONN = json["page"] {                           
                 
-                for var iParam in paramNames
-                {
-                    Localparams[iParam] = []
-                }
+                for var iParam in paramNames { Localparams[iParam] = [] }                                
                 
-                for var index: Int in 0...JSON.count-1 {
-                    var aObject = JSON[index] as! [String : AnyObject]  
+                for var index in 0...JSONN.count-1 {     
+                    var aObject = (JSONN[index]) as! [String : AnyObject]  
                                         
-                    for var iParam in paramNames
-                    {
-                        
-                        Localparams[iParam]?.append(aObject[iParam] as! String)
-                           
+                    for var iParam in paramNames {               
+                        if (iParam == "id") {
+                            Localparams[iParam]?.append(String(describing: aObject[iParam]))
+                        }
+                        else {
+                            Localparams[iParam]?.append(aObject[iParam] as! String)
+                        }
                     }                    
                 }                
+            }
+            else {
+                for var iParam in paramNames { Localparams[iParam] = [] }
+                                
+                for var index in 0...paramNames.count-1 {
+                    if paramNames[index] == "id" {
+                        Localparams[paramNames[index]]?.append("1")
+                    }
+                    else {
+                        Localparams[paramNames[index]]?.append("asd")
+                        if paramNames[index] == "image" {
+                            Localparams[paramNames[index]]?[0].append("https://pp.userapi.com/c626223/v626223942/3702a/xNEpeD7Eggk.jpg")
+                        }
+                    }
+                }
+
             }
             
         }
@@ -99,6 +146,7 @@ class JSONTaker
     func loadImg(imgURL: String, img1: UIImageView, img2: UIImageView, spinner: UIActivityIndicatorView)-> Void{
         
         spinner.startAnimating()
+        spinner.hidesWhenStopped = true
         let urlURL = URL(string: imgURL)
         
         asyncLoadImage(imageURL: urlURL!,
@@ -116,6 +164,7 @@ class JSONTaker
     func loadImg(imgURL: String, img: UIImageView, spinner: UIActivityIndicatorView)-> Void{
         
         spinner.startAnimating()
+        spinner.hidesWhenStopped = true
         let urlURL = URL(string: imgURL)
         
         asyncLoadImage(imageURL: urlURL!,
@@ -125,7 +174,7 @@ class JSONTaker
             guard let image = result
                 else {return}
             img.image = image
-            spinner.stopAnimating()
+            spinner.stopAnimating()            
         }        
     }  
     
@@ -144,8 +193,9 @@ class JSONTaker
     }    
     
     func loadVideo (videoCode: String, myWebView: UIWebView) {
-        let url = URL(string: "https://www.youtube.com/embed/\(videoCode)")
-        myWebView.loadRequest(URLRequest(url: url!))
+        let url = URL(string: "https://www.youtube.com/embed/\(videoCode)") 
+        myWebView.isHidden = true        
+        myWebView.loadRequest(URLRequest(url: url!))                
     }
     
     func setStatusBarColorOrange ()
@@ -173,13 +223,13 @@ class JSONTaker
             blackView.alpha = 1
         }, completion: nil)
                        
-        viewController.view.addSubview(blackView)
-        
-    }  
+        viewController.view.addSubview(blackView)        
+    }
     //post request
-    func onPostTapped(API: String, parameters : [String]) {
+    
+    func onPostTapped(API: String, parameters : [String : String] ) {
         
-        // let parameters = ["username": "@kilo_loco", "tweet": "HelloWorld"]
+        //  let parameters = ["username": "@kilo_loco", "tweet": "HelloWorld"]
         
         guard let url = URL(string: baseURL + API) else { return }
         var request = URLRequest(url: url)
@@ -207,7 +257,6 @@ class JSONTaker
             }.resume()
         
     }
-    
     
     func showAlert (title: String, message: String, viewController: UIViewController) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
