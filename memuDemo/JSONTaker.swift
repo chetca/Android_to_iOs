@@ -92,9 +92,9 @@ class JSONTaker
                     var aObject = (JSONN[index]) as! [String : AnyObject]  
                                         
                     for var iParam in paramNames {               
-                        if (iParam == "id") {
-                            Localparams[iParam]?.append(String(describing: aObject[iParam]))
-                        }
+                        if (iParam == "id" || iParam=="album") {
+                            Localparams[iParam]?.append(String(aObject[iParam] as! Int))
+                        }                        
                         else {
                             Localparams[iParam]?.append(aObject[iParam] as! String)
                         }
@@ -105,7 +105,7 @@ class JSONTaker
                 for var iParam in paramNames { Localparams[iParam] = [] }
                                 
                 for var index in 0...paramNames.count-1 {
-                    if paramNames[index] == "id" {
+                    if paramNames[index] == "id" || paramNames[index] == "album" {
                         Localparams[paramNames[index]]?.append("1")
                     }
                     else {
