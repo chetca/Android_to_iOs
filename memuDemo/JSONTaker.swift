@@ -167,15 +167,20 @@ class JSONTaker
         spinner.hidesWhenStopped = true
         let urlURL = URL(string: imgURL)
         
-        asyncLoadImage(imageURL: urlURL!,
+        if let lru = urlURL {         
+            asyncLoadImage(imageURL: urlURL!,
                        runQueue: DispatchQueue.global(),
                        completionQueue: DispatchQueue.main)
-        { result, error in
-            guard let image = result
-                else {return}
-            img.image = image
-            spinner.stopAnimating()            
-        }        
+            { result, error in
+                guard let image = result
+                    else {return}
+                img.image = image
+                spinner.stopAnimating()            
+            }        
+        }
+        else {
+            print ("error img url, baka")
+        }
     }  
     
     func asyncLoadImage(imageURL: URL,
