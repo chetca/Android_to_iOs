@@ -28,21 +28,13 @@ class AstrologicalForecastViewController: UIViewController,UINavigationBarDelega
         
         //http://localhost:8080/budd/http/api/zurkhay           
         
-        day.append("Понедельник")
-        day.append("Вторник")
-        day.append("Среда")
-        day.append("Четверг")
-        day.append("Пятница")
-        day.append("Суббота")
-        day.append("Воскресение")
-        
         for var i in 1...7
         {
             texts.append("text" + String(i))
         }
         
         
-        paramDict = JSONTaker.shared.loadData(API: "zurkhay", paramNames: texts)
+        paramDict = JSONTaker.shared.loadData(API: "zurkhay", paramNames: ["id", "date", "title", "text"])
         
         print ("paramDict.count", paramDict.count)
         
@@ -60,27 +52,26 @@ class AstrologicalForecastViewController: UIViewController,UINavigationBarDelega
     }        
     
     func tableView(_ tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
-        return self.day.count;
+        return (self.paramDict["id"]?.count)!;
     }
+    
     func tableView(_ tableView: UITableView!, didSelectRowAtIndexPath indexPath: IndexPath!) {
         print("You selected name : "+day[indexPath.row])
     }
     
     func tableView(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCell(withIdentifier: "cell")
-        
+        var cell = tableView.dequeueReusableCell(withIdentifier: "cell")        
     
         if !(cell != nil) {
             cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell") //if cell is nil, get pointer to new one
         }
 
+        cell?.detailTextLabel?.textColor = UIColor.black
+        cell?.detailTextLabel?.setHTML(html: (paramDict["text"]?[indexPath.row])!)        
         
-        cell?.textLabel?.font = UIFont(name: "Helvetica", size: 13)                
-        
-        if (indexPath.row >= 0 && indexPath.row <= 6) {
-            cell?.textLabel?.text=self.day[indexPath.row] + "\n" + (self.paramDict[texts[indexPath.row]]?[0])!
-            cell?.textLabel?.numberOfLines = 0            
-        }
+        cell?.textLabel?.font = UIFont(name: "Helvetica", size: 13)                        
+        cell?.textLabel?.text = "Зурхай на " + (paramDict["date"]?[indexPath.row])! + ":"        
+        cell?.textLabel?.numberOfLines = 0            
         
         return cell!
     }

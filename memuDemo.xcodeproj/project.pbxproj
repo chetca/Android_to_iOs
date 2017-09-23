@@ -14,7 +14,6 @@
 		8853CEC71F55B68A005A4FB2 /* VideoAlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8853CEC41F55B68A005A4FB2 /* VideoAlbumCell.swift */; };
 		8853CEC81F55B68A005A4FB2 /* VideoAlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8853CEC51F55B68A005A4FB2 /* VideoAlbumViewController.swift */; };
 		8853CECA1F55B6CE005A4FB2 /* LectureTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8853CEC91F55B6CE005A4FB2 /* LectureTableViewCell.swift */; };
-		8853CECC1F55B704005A4FB2 /* CurrentLectureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8853CECB1F55B704005A4FB2 /* CurrentLectureViewController.swift */; };
 		88A1AFA31F62F12500E002C6 /* OrderCurrentKhuralViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A1AFA21F62F12500E002C6 /* OrderCurrentKhuralViewController.swift */; };
 		88A1AFA51F62FA6500E002C6 /* GiveMeMoneyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88A1AFA41F62FA6500E002C6 /* GiveMeMoneyTextField.swift */; };
 		88C48B2A1F504F7A0096DB83 /* JSONTaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88C48B291F504F7A0096DB83 /* JSONTaker.swift */; };
@@ -35,7 +34,6 @@
 		88FFD80E1F5716B400E8E4EE /* CurrentNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FFD80D1F5716B400E8E4EE /* CurrentNewsViewController.swift */; };
 		88FFD8101F57185500E8E4EE /* HistoryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FFD80F1F57185500E8E4EE /* HistoryTableViewController.swift */; };
 		88FFD8131F57187A00E8E4EE /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FFD8111F57187A00E8E4EE /* HistoryTableViewCell.swift */; };
-		88FFD8161F57189100E8E4EE /* CurrentHistoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FFD8151F57189100E8E4EE /* CurrentHistoryController.swift */; };
 		88FFD8181F57959B00E8E4EE /* PhotoAlbumTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FFD8171F57959B00E8E4EE /* PhotoAlbumTableViewController.swift */; };
 		88FFD81A1F5799E000E8E4EE /* AlbumCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88FFD8191F5799E000E8E4EE /* AlbumCollectionCell.swift */; };
 		B222F1EF1DAA30330089573D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B222F1EE1DAA30330089573D /* Assets.xcassets */; };
@@ -68,7 +66,6 @@
 		8853CEC41F55B68A005A4FB2 /* VideoAlbumCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VideoAlbumCell.swift; path = VideoSC/VideoAlbumCell.swift; sourceTree = "<group>"; };
 		8853CEC51F55B68A005A4FB2 /* VideoAlbumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VideoAlbumViewController.swift; path = VideoSC/VideoAlbumViewController.swift; sourceTree = "<group>"; };
 		8853CEC91F55B6CE005A4FB2 /* LectureTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LectureTableViewCell.swift; path = LecturesSC/LectureTableViewCell.swift; sourceTree = "<group>"; };
-		8853CECB1F55B704005A4FB2 /* CurrentLectureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CurrentLectureViewController.swift; path = LecturesSC/CurrentLectureViewController.swift; sourceTree = "<group>"; };
 		88A1AFA21F62F12500E002C6 /* OrderCurrentKhuralViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrderCurrentKhuralViewController.swift; path = KhuralScheduleSC/OrderCurrentKhuralViewController.swift; sourceTree = "<group>"; };
 		88A1AFA41F62FA6500E002C6 /* GiveMeMoneyTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GiveMeMoneyTextField.swift; path = KhuralScheduleSC/GiveMeMoneyTextField.swift; sourceTree = "<group>"; };
 		88C48B291F504F7A0096DB83 /* JSONTaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONTaker.swift; sourceTree = "<group>"; };
@@ -91,7 +88,6 @@
 		88FFD80D1F5716B400E8E4EE /* CurrentNewsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CurrentNewsViewController.swift; path = FeedsSC/CurrentNewsViewController.swift; sourceTree = "<group>"; };
 		88FFD80F1F57185500E8E4EE /* HistoryTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryTableViewController.swift; path = HistorySC/HistoryTableViewController.swift; sourceTree = "<group>"; };
 		88FFD8111F57187A00E8E4EE /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryTableViewCell.swift; path = HistorySC/HistoryTableViewCell.swift; sourceTree = "<group>"; };
-		88FFD8151F57189100E8E4EE /* CurrentHistoryController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CurrentHistoryController.swift; path = HistorySC/CurrentHistoryController.swift; sourceTree = "<group>"; };
 		88FFD8171F57959B00E8E4EE /* PhotoAlbumTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoAlbumTableViewController.swift; path = PhotoAlbumSC/PhotoAlbumTableViewController.swift; sourceTree = "<group>"; };
 		88FFD8191F5799E000E8E4EE /* AlbumCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AlbumCollectionCell.swift; path = PhotoAlbumSC/AlbumCollectionCell.swift; sourceTree = "<group>"; };
 		B222F1E41DAA30330089573D /* memuDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = memuDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -144,7 +140,6 @@
 			children = (
 				88FFD80F1F57185500E8E4EE /* HistoryTableViewController.swift */,
 				88FFD8111F57187A00E8E4EE /* HistoryTableViewCell.swift */,
-				88FFD8151F57189100E8E4EE /* CurrentHistoryController.swift */,
 			);
 			name = History;
 			sourceTree = "<group>";
@@ -183,7 +178,6 @@
 			children = (
 				8853CEC11F55B682005A4FB2 /* LecturesTableViewController.swift */,
 				8853CEC91F55B6CE005A4FB2 /* LectureTableViewCell.swift */,
-				8853CECB1F55B704005A4FB2 /* CurrentLectureViewController.swift */,
 			);
 			name = Lectures;
 			sourceTree = "<group>";
@@ -263,8 +257,8 @@
 				88FFD8051F570A9100E8E4EE /* Videos */,
 				B222F1EE1DAA30330089573D /* Assets.xcassets */,
 				88FFD80A1F570B1000E8E4EE /* Singlton and storyB */,
-				88E2C5A61F49D24C003859DF /* menuViewController.swift */,
 				88E2C5A51F49D24C003859DF /* MenuCell.swift */,
+				88E2C5A61F49D24C003859DF /* menuViewController.swift */,
 				88FFD80B1F570B3D00E8E4EE /* DER'MO */,
 			);
 			path = memuDemo;
@@ -425,7 +419,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8853CECC1F55B704005A4FB2 /* CurrentLectureViewController.swift in Sources */,
 				88E2C5AD1F49D24C003859DF /* MenuCell.swift in Sources */,
 				88E2C5AB1F49D24C003859DF /* ViewController.swift in Sources */,
 				88E2C5AF1F49D24C003859DF /* AstrologicalForecastViewController.swift in Sources */,
@@ -451,7 +444,6 @@
 				88FFD8131F57187A00E8E4EE /* HistoryTableViewCell.swift in Sources */,
 				88E2C5A81F49D24C003859DF /* AppDelegate.swift in Sources */,
 				88E2C5AE1F49D24C003859DF /* menuViewController.swift in Sources */,
-				88FFD8161F57189100E8E4EE /* CurrentHistoryController.swift in Sources */,
 				8853CEC61F55B68A005A4FB2 /* CurrentVideoController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

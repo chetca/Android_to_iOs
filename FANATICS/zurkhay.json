@@ -1,15 +1,30 @@
-{
-  "page": [
-    {
-      "id": 1,
-      "title": "title",
-      "text1": ";skdfhgj;lasjfgbldfgjkjgfnvbjfdkxj.gdn fwjlgbj ndvsakrngbndfgne agbsjnkjsaejgfnbcjklsdjafndgblkjsnfdfajlnbdfsgajfkngdbsjlnafjnbssljansgdbsjnffaejndgjaenbgjdfnbejsfdngbdajfnbjbsflnabfasjdnbdfsjanbsdvjbcndsfajfnsdbvioajbnmrfhlb",
-      "text2": ";skdfhgj;lasjfgbldfgjkjgfnvbjfdkxj.gdn fwjlgbj ndvsakrngbndfgne agbsjnkjsaejgfnbcjklsdjafndgblkjsnfdfajlnbdfsgajfkngdbsjlnafjnbssljansgdbsjnffaejndgjaenbgjdfnbejsfdngbdajfnbjbsflnabfasjdnbdfsjanbsdvjbcndsfajfnsdbvioajbnmrfhlb",
-      "text3": "text3;skdfhgj;lasjfgbldfgjkjgfnvbjfdkxj.gdn fwjlgbj ndvsakrngbndfgne agbsjnkjsaejgfnbcjklsdjafndgblkjsnfdfajlnbdfsgajfkngdbsjlnafjnbssljansgdbsjnffaejndgjaenbgjdfnbejsfdngbdajfnbjbsflnabfasjdnbdfsjanbsdvjbcndsfajfnsdbvioajbnmrfhlb",
-      "text4": "text4;skdfhgj;lasjfgbldfgjkjgfnvbjfdkxj.gdn fwjlgbj ndvsakrngbndfgne agbsjnkjsaejgfnbcjklsdjafndgblkjsnfdfajlnbdfsgajfkngdbsjlnafjnbssljansgdbsjnffaejndgjaenbgjdfnbejsfdngbdajfnbjbsflnabfasjdnbdfsjanbsdvjbcndsfajfnsdbvioajbnmrfhlb",
-      "text5": "text5",
-      "text6": "text6",
-      "text7": "text7"
-    }
-  ]
-}
+[
+  {
+    "id": 1,
+    "date": "15.09.2017",
+    "title": "Зухрай на сегодня",
+    "text": "<p>Сегодня всё заебись</p>",
+    "visible": 1
+  },
+  {
+    "id": 2,
+    "date": "16.09.2017",
+    "title": "Зухрай на сегодня",
+    "text": "<p>Сегодня всё заебись</p>",
+    "visible": 1
+  },
+  {
+    "id": 3,
+    "date": "14.09.2017",
+    "title": "зухрай на сегодня",
+    "text": "<p>Сегодня всё заебись</p>",
+    "visible": 1
+  },
+  {
+    "id": 4,
+    "date": "13.09.2017",
+    "title": "Зухрай на сегодня",
+    "text": "<p>Сегодня всё заебись</p>",
+    "visible": 1
+  }
+]

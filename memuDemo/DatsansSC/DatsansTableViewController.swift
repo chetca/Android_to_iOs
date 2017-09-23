@@ -54,7 +54,7 @@ class DatsansTableViewController: UITableViewController {
         cell?.textLabel?.font = UIFont(name: "Helvetica", size: 13)
         
         if (indexPath.row >= 0 && indexPath.row <= 6) {
-            cell?.textLabel?.text=(self.paramDict["title"]?[indexPath.row])! + "\n" + (self.paramDict["text"]?[indexPath.row])!
+            cell?.textLabel?.setHTML(html: String((self.paramDict["title"]?[indexPath.row])! + "\n" + (self.paramDict["text"]?[indexPath.row])!))
             cell?.textLabel?.numberOfLines = 0            
         }
         

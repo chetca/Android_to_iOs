@@ -15,8 +15,7 @@ class HistoryTableViewCell: UITableViewCell {
     @IBOutlet var dataTime: UILabel!
     @IBOutlet var shortText: UILabel!
     @IBOutlet var spinner: UIActivityIndicatorView!
-    @IBOutlet var shortTextHeightConstraint: NSLayoutConstraint!
-    @IBOutlet var titleHeightConstraint: NSLayoutConstraint!
+    @IBOutlet var imgHeight: NSLayoutConstraint!
     
     override func awakeFromNib() {
         super.awakeFromNib()

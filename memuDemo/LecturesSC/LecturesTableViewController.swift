@@ -24,11 +24,13 @@ class LecturesTableViewController: UITableViewController {
             btnMenuButton.action = #selector(SWRevealViewController.revealToggle(_:))
             
             
-            paramDict = JSONTaker.shared.loadData(API: "lectures", paramNames: ["title", "date", "short",  "image", "text", "video"])
+            paramDict = JSONTaker.shared.loadData(API: "lectures", paramNames: ["title", "date", "short",  "image", "text"])
             //loadAstrologicalData(baseURL: "file:///Users/dugar/Downloads/feed.json")            
             //print (paramDict)            
         }
 
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 140
     }
 
     override func didReceiveMemoryWarning() {
@@ -48,7 +50,6 @@ class LecturesTableViewController: UITableViewController {
         StringLblText   = (self.paramDict["title"]?[indexPath.row])! 
         StringText = (self.paramDict["text"]?[indexPath.row])!
         StringDataField = (self.paramDict["date"]?[indexPath.row])!          
-        StringVideoID   = (self.paramDict["video"]?[indexPath.row])!
         performSegue(withIdentifier: "segue", sender: self)         
     }
     
@@ -57,61 +58,16 @@ class LecturesTableViewController: UITableViewController {
 
         cell.dateLbl.text = JSONTaker.shared.convertDate(date: (self.paramDict["date"]?[indexPath.row])!)
         //cell.dateLbl.text = JSONTaker.shared.convertDate(date: (self.paramDict["date"]?[indexPath.row])!)
-        cell.titleLbl.text = (self.paramDict["title"]?[indexPath.row])!
-        cell.shortTextLbl.text = (self.paramDict["short"]?[indexPath.row])!
+        cell.titleLbl.text = self.paramDict["title"]?[indexPath.row]
+        cell.shortTextLbl.setHTML(html: (self.paramDict["short"]?[indexPath.row])!)
         
         JSONTaker.shared.loadImg(imgURL: (self.paramDict["image"]?[indexPath.row])!, 
                                  img: cell.img, 
-                                 spinner: cell.spinner)
-        
+                                 spinner: cell.spinner,
+                                 imgHeightConstraint: cell.imgHeight)        
 
+        
+        
         return cell
     }
-    
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

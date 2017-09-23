@@ -15,6 +15,7 @@ class CurrentNewsViewController: UIViewController {
     @IBOutlet var textNews: UILabel!
     @IBOutlet var img: UIImageView!
     @IBOutlet var spinner: UIActivityIndicatorView!
+    @IBOutlet var imgHeight: NSLayoutConstraint!
     
     var images = [UIImage]()
     
@@ -24,10 +25,11 @@ class CurrentNewsViewController: UIViewController {
         lblText.text = StringLblText
         dataField.text = StringDataField
         textNews.text = StringText             
-        JSONTaker.shared.loadImg(imgURL: StringUrlImg, img: img, spinner: spinner)                  
+        JSONTaker.shared.loadImg(imgURL: StringUrlImg, img: img, spinner: spinner, imgHeightConstraint: imgHeight)
+        img.sizeToFit()                                        
         
         textNews.setHTML(html: textNews.text!)                                
-    }
+    }    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

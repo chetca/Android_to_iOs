@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "memuDemo/FeedsSC/ViewController.swift"
-            timestampString = "526975251.760575"
+            timestampString = "527738487.938475"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116">
+            startingLineNumber = "122"
+            endingLineNumber = "122">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -72,13 +72,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "memuDemo/PhotoAlbumSC/PhotoAlbumTableViewController.swift"
-            timestampString = "527530347.200879"
+            timestampString = "527614539.753851"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
-            landmarkName = "collectionView(_:cellForItemAt:)"
-            landmarkType = "7">
+            startingLineNumber = "122"
+            endingLineNumber = "122">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
@@ -180,13 +178,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "memuDemo/PhotoAlbumSC/PhotoAlbumTableViewController.swift"
-            timestampString = "527530347.200879"
+            timestampString = "527614539.753851"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
-            landmarkName = "collectionView(_:cellForItemAt:)"
-            landmarkType = "7">
+            startingLineNumber = "123"
+            endingLineNumber = "123">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -196,13 +192,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "memuDemo/PhotoAlbumSC/PhotoAlbumTableViewController.swift"
-            timestampString = "527530347.200879"
+            timestampString = "527614539.753851"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
-            landmarkName = "collectionView(_:cellForItemAt:)"
-            landmarkType = "7">
+            startingLineNumber = "125"
+            endingLineNumber = "125">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -212,45 +206,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "memuDemo/PhotoAlbumSC/PhotoAlbumTableViewController.swift"
-            timestampString = "527530347.200879"
+            timestampString = "527614539.753851"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "121"
-            endingLineNumber = "121"
-            landmarkName = "collectionView(_:cellForItemAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "memuDemo/PhotoAlbumSC/PhotoAlbumTableViewController.swift"
-            timestampString = "527530347.200879"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
-            landmarkName = "collectionView(_:cellForItemAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "memuDemo/PhotoAlbumSC/PhotoAlbumTableViewController.swift"
-            timestampString = "527530347.200879"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
-            landmarkName = "collectionView(_:cellForItemAt:)"
-            landmarkType = "7">
+            startingLineNumber = "124"
+            endingLineNumber = "124">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

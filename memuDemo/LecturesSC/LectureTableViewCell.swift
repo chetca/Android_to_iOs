@@ -10,12 +10,14 @@ import UIKit
 
 class LectureTableViewCell: UITableViewCell {
 
+
     
-    @IBOutlet var img: UIImageView!
-    @IBOutlet var dateLbl: UILabel!
-    @IBOutlet var shortTextLbl: UILabel!
     @IBOutlet var titleLbl: UILabel!
+    @IBOutlet var shortTextLbl: UILabel!
+    @IBOutlet var dateLbl: UILabel!    
     @IBOutlet var spinner: UIActivityIndicatorView!
+    @IBOutlet var img: UIImageView!        
+    @IBOutlet var imgHeight: NSLayoutConstraint!
     
     override func awakeFromNib() {
         super.awakeFromNib()

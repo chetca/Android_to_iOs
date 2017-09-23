@@ -11,13 +11,12 @@ import UIKit
 extension UILabel {
     func setHTML(html: String) {           
         do {               
-            let at : NSAttributedString = try NSAttributedString(data: html.data(using: .utf8)!, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: String.Encoding.utf8.rawValue], documentAttributes: nil);
-                        
+            let at : NSAttributedString = try NSAttributedString(data: html.data(using: .utf8)!, options: [NSDocumentTypeDocumentAttribute: NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute: String.Encoding.utf8.rawValue], documentAttributes: nil);                        
             self.attributedText = at;
         } catch {
             self.text = html;
         }
-        font = UIFont(name: "Helvetica", size: 15)
+        font = UIFont(name: "Helvetica", size: 14)
     }
 }
 
@@ -30,6 +29,7 @@ var StringImgURLs       : [String] = [String]()
 var StringNavBarTitle   : String = ""
 
 let baseURL = "file:///Users/dugar/Desktop/AndrtoIOS/FANATICS/"
+//let baseURL = "http://192.168.3.225"
 let donateURL = "http://www.buddhismofrussia.ru/donate/"
 let blackView = UIView()
 
@@ -41,17 +41,31 @@ class JSONTaker
     
     
     public var location = 0;    
-    var json:[String:AnyObject] = [String : AnyObject]()
+    var json:[String:AnyObject] = Dictionary()
     let dateFormatter = DateFormatter()          
     
     private func loadJSON (API: String)
     {
         let url=URL(string: baseURL + API + ".json")
+        //let url=URL(string: baseURL + "/api/" + API)
         var allData = Data()
         do {
             allData = try Data(contentsOf: (url)!)                                
             
-            json = try JSONSerialization.jsonObject(with: allData, options: JSONSerialization.ReadingOptions.allowFragments) as! [String : AnyObject]                                                
+            var strData = String(data: allData, encoding: .utf8)
+            //print (strData!)            
+            var strJSON = String(data: allData, encoding: .utf8)            
+                                    
+            var validStrJSON = "{\n  \"page\":" + strJSON! + "\n}"            
+            
+            print (validStrJSON)
+            
+            let arr: [UInt8] = Array(validStrJSON.utf8)
+            allData = Data(arr)
+            
+            let tryJSON = try JSONSerialization.jsonObject(with: allData, options: JSONSerialization.ReadingOptions.allowFragments)
+                        
+            json = tryJSON as! [String: AnyObject]
         }
         catch {
             print(error)
@@ -59,6 +73,8 @@ class JSONTaker
             //So that there we add key value by reading the data and changing it
             //data -> String -> [+ "\"page\":" +] -> data -> JSONSerialization 
             
+            
+            /*
             var strJSON = String(data: allData, encoding: .utf8)
             strJSON?.remove(at: (strJSON?.startIndex)!)
             strJSON?.remove(at: (strJSON?.startIndex)!)
@@ -75,7 +91,8 @@ class JSONTaker
             }
             catch {
                 print (error)
-            }                                    
+            }    
+            */
         }
     }
     
@@ -142,6 +159,50 @@ class JSONTaker
             return ""
         }
     }    
+    
+    func loadImg(imgURL: String, img: UIImageView, spinner: UIActivityIndicatorView, imgHeightConstraint: NSLayoutConstraint)-> Void{
+        
+        spinner.startAnimating()
+        spinner.hidesWhenStopped = true
+        let urlURL = URL(string: imgURL)
+        
+        if let lru = urlURL {         
+            asyncLoadImage(imageURL: urlURL!,
+                           runQueue: DispatchQueue.global(),
+                           completionQueue: DispatchQueue.main)
+            { result, error in
+                guard let image = result
+                    else {return}
+                img.image = image                
+                
+                DispatchQueue.main.async(execute: {
+                    while (true) {
+                        if img.bounds.width != 0.0 {
+                            imgHeightConstraint.constant = img.bounds.width * ((img.image?.size.height)!/(img.image?.size.width)!)
+                            
+                            print (img.bounds.width)
+                            print ((img.image?.size.height))
+                            print (img.image?.size.width)
+                            
+                            img.frame = CGRect(x: img.frame.origin.x,
+                                               y: img.frame.origin.y,
+                                               width: img.frame.width,
+                                               height: imgHeightConstraint.constant)
+                            
+                            print ("imgFrame", img.frame)
+                            
+                            return
+                        }
+                    }                    
+                })                                               
+                
+                spinner.stopAnimating()            
+            }        
+        }
+        else {
+            print ("error img url, baka")
+        }
+    } 
     
     func loadImg(imgURL: String, img1: UIImageView, img2: UIImageView, spinner: UIActivityIndicatorView)-> Void{
         
@@ -272,6 +333,35 @@ class JSONTaker
         }))                
         
         viewController.present(alert, animated: true, completion: nil)        
+    }
+    
+    func fromHTMLToAdequate (HTML: String) -> String {
+        
+        var html = HTML    
+        
+        while (html.characters.first != Character("\"")) {
+            html.remove(at: html.startIndex)            
+        }
+        
+        print (html)
+
+        html.remove(at: html.startIndex)
+        var adequate = ""
+        
+        while (html.characters.first != Character("\"")) {
+            adequate.append(html.remove(at: html.startIndex))
+        }
+        
+        var adeq = ""
+        
+        while (adequate.characters.last != Character("/")) {
+            adeq.append(adequate.characters.removeLast())
+        }
+        
+        adeq = String(adeq.characters.reversed())
+        
+        print (adeq)
+        return adeq
     }
      
 }

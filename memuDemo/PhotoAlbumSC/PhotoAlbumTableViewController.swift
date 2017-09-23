@@ -31,8 +31,7 @@ class PhotoAlbumTableViewController: UIViewController, UICollectionViewDataSourc
             paramDict = JSONTaker.shared.loadData(API: "photos", paramNames: ["title", "image", "album", "date"])            
         }
         
-        var bigString = ""                
-        
+        var bigString = ""                        
         
         //initialize album to not nil
         for var i:Int in 0...((paramDict["title"]?.count)! - 1) { self.album[(paramDict["album"]?[i])!] = "" }        
@@ -70,9 +69,7 @@ class PhotoAlbumTableViewController: UIViewController, UICollectionViewDataSourc
         // Dispose of any resources that can be recreated.
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print ((collectionView.cellForItem(at: indexPath) as! AlbumCollectionCell).title.text)
-        
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {                
         StringImgURLs = (album[albumIndex[indexPath.row]]?.components(separatedBy: "\n"))!
         
         StringNavBarTitle = (paramDict["title"]?[indexPath.row])!
@@ -91,7 +88,6 @@ class PhotoAlbumTableViewController: UIViewController, UICollectionViewDataSourc
         
         cell.title.text = "default title"                  
         
-        print (indexPath.row, "<======")
         cell.photosCnt.text = (String((album[albumIndex[indexPath.row]]!).components(separatedBy: "\n").count))
         
         cell.title.layer.zPosition = 1
@@ -111,9 +107,7 @@ class PhotoAlbumTableViewController: UIViewController, UICollectionViewDataSourc
                                       width: cell.photosCnt.bounds.width, 
                                       height: cell.photosCnt.bounds.height)
         
-        cell.photosCnt.textAlignment = NSTextAlignment.right        
-        
-        print (albumPhoto[indexPath.row])
+        cell.photosCnt.textAlignment = NSTextAlignment.right                
         
         JSONTaker.shared.loadImg(imgURL: albumPhoto[indexPath.row], img: cell.img, spinner: cell.spinner)     
         

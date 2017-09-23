@@ -43,7 +43,10 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
             btnMenuButton.action = #selector(SWRevealViewController.revealToggle(_:))            
             
             paramDict = JSONTaker.shared.loadData(API: "news", paramNames: ["title","date", "short",  "image", "text"])
-        }                                    
+        }
+        
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 100
     }
     
     
@@ -71,14 +74,17 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell: FeedsCell = tableView.dequeueReusableCell(withIdentifier: "FeedsCell", for: indexPath) as! FeedsCell                        
-                                
+        let cell: FeedsCell = tableView.dequeueReusableCell(withIdentifier: "FeedsCell", for: indexPath) as! FeedsCell                                                                
+        
         cell.dataTime.text = JSONTaker.shared.convertDate(date: (self.paramDict["date"]?[indexPath.row])!)
         cell.titleText.text = self.paramDict["title"]?[indexPath.row]
         cell.shortText.text = self.paramDict["short"]?[indexPath.row]
         JSONTaker.shared.loadImg(imgURL: (self.paramDict["image"]?[indexPath.row])!, img: cell.img, spinner: cell.spinner)
         
-        //cell.shortText.sizeToFit()        
+        cell.shortText.sizeToFit()   
+        cell.titleText.sizeToFit()
+        cell.dataTime.sizeToFit()
+        cell.img.sizeToFit()        
         
         return cell
     }
