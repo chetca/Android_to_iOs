@@ -158,7 +158,7 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="GqO-3N-rBl">
                                         <rect key="frame" x="0.0" y="45" width="375" height="450"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="450" id="H4f-QR-mVe"/>
+                                            <constraint firstAttribute="height" constant="450" id="tcN-nH-YwD"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CRd-Rc-9t1">
@@ -177,7 +177,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="acq-mb-7v2">
-                                        <rect key="frame" x="177.5" y="260" width="20" height="20"/>
+                                        <rect key="frame" x="178" y="260" width="20" height="20"/>
                                     </activityIndicatorView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iPf-R9-R7t">
                                         <rect key="frame" x="16" y="522" width="343" height="14"/>
@@ -216,7 +216,6 @@
                     <connections>
                         <outlet property="dataField" destination="u72-ZP-zCx" id="1Tw-0H-gaI"/>
                         <outlet property="img" destination="GqO-3N-rBl" id="gxX-OA-lEJ"/>
-                        <outlet property="imgHeight" destination="H4f-QR-mVe" id="abM-R1-NsM"/>
                         <outlet property="lblText" destination="CRd-Rc-9t1" id="xYx-ev-t2Y"/>
                         <outlet property="spinner" destination="acq-mb-7v2" id="36k-4s-0Zp"/>
                         <outlet property="textNews" destination="iPf-R9-R7t" id="Duf-8r-Mnb"/>
@@ -640,7 +639,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rbZ-FH-bup">
-                                            <rect key="frame" x="8" y="12.5" width="359" height="23"/>
+                                            <rect key="frame" x="8" y="12.5" width="359" height="20.5"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -661,13 +660,10 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="klO-4D-bC2">
-                                            <rect key="frame" x="0.0" y="40" width="375" height="450"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="450" id="y7H-F2-VY5"/>
-                                            </constraints>
+                                            <rect key="frame" x="0.0" y="37.5" width="375" height="452.5"/>
                                         </imageView>
                                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="uzk-NK-9eu">
-                                            <rect key="frame" x="178" y="255" width="20" height="20"/>
+                                            <rect key="frame" x="178" y="254" width="20" height="20"/>
                                         </activityIndicatorView>
                                     </subviews>
                                     <constraints>
@@ -691,7 +687,6 @@
                                 <connections>
                                     <outlet property="dataTime" destination="HyK-pE-ER6" id="J7J-hz-ZTW"/>
                                     <outlet property="img" destination="klO-4D-bC2" id="5bV-Dd-Hot"/>
-                                    <outlet property="imgHeight" destination="y7H-F2-VY5" id="1JF-yx-KSB"/>
                                     <outlet property="shortText" destination="1bZ-tO-QGG" id="bpR-R0-cIg"/>
                                     <outlet property="spinner" destination="uzk-NK-9eu" id="QTX-jM-X0Z"/>
                                     <outlet property="titleLbl" destination="rbZ-FH-bup" id="PTR-T9-JJY"/>
@@ -856,7 +851,6 @@
                                             <rect key="frame" x="8" y="9" width="142" height="134"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="142" id="NT4-MA-ZFg"/>
-                                                <constraint firstAttribute="height" constant="134" id="gRn-5s-75V"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b6B-bc-sSC">
@@ -958,9 +952,6 @@
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="X0S-W2-vq1">
                                             <rect key="frame" x="0.0" y="37" width="375" height="457"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="456.5" id="7re-E6-1aO"/>
-                                            </constraints>
                                         </imageView>
                                         <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="xzs-Ue-Zqx">
                                             <rect key="frame" x="177.5" y="255" width="20" height="20"/>
@@ -987,7 +978,6 @@
                                 <connections>
                                     <outlet property="dateLbl" destination="xSs-78-z94" id="xik-WE-wQI"/>
                                     <outlet property="img" destination="X0S-W2-vq1" id="uSI-Wl-o6T"/>
-                                    <outlet property="imgHeight" destination="7re-E6-1aO" id="SBl-Zy-Ohh"/>
                                     <outlet property="shortTextLbl" destination="X6t-hm-AZU" id="Ul4-Tl-asw"/>
                                     <outlet property="spinner" destination="xzs-Ue-Zqx" id="Y3O-uD-eko"/>
                                     <outlet property="titleLbl" destination="Ple-cw-WER" id="BZn-ly-J3d"/>
@@ -1348,6 +1338,6 @@
         <image name="profile" width="1291" height="1340"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dMj-Ur-fcC"/>
+        <segue reference="jRJ-V5-EBD"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -109,7 +109,7 @@ class PhotoAlbumTableViewController: UIViewController, UICollectionViewDataSourc
         
         cell.photosCnt.textAlignment = NSTextAlignment.right                
         
-        JSONTaker.shared.loadImg(imgURL: albumPhoto[indexPath.row], img: cell.img, spinner: cell.spinner)     
+        JSONTaker.shared.loadImg(imgURL: albumPhoto[indexPath.row], img: [cell.img], spinner: cell.spinner)     
         
         return cell
     }       

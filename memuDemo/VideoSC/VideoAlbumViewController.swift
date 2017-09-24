@@ -36,7 +36,7 @@ class VideoAlbumViewController: UITableViewController {
     }    
     
     @objc(tableView:didSelectRowAtIndexPath:) override func tableView(_ tableView: UITableView,didSelectRowAt indexPath: IndexPath) {
-        print("You selected name : "+(self.paramDict["title"]?[indexPath.row])!)
+        //print("You selected name : "+(self.paramDict["title"]?[indexPath.row])!)
                 
         StringLblText   = (self.paramDict["title"]?[indexPath.row])!           
         StringVideoID   = JSONTaker.shared.fromHTMLToAdequate(HTML: (paramDict["text"]?[indexPath.row])!)
@@ -48,7 +48,7 @@ class VideoAlbumViewController: UITableViewController {
         
         cell.titleLbl.text = self.paramDict["title"]?[indexPath.row]                              	                                                         
         let adequateVideoURL = JSONTaker.shared.fromHTMLToAdequate(HTML: (paramDict["text"]?[indexPath.row])!)        
-        JSONTaker.shared.loadImg(imgURL: "https://img.youtube.com/vi/\(adequateVideoURL)/hqdefault.jpg", img: cell.img, spinner: cell.spinner)
+        JSONTaker.shared.loadImg(imgURL: "https://img.youtube.com/vi/\(adequateVideoURL)/hqdefault.jpg", img: [cell.img], spinner: cell.spinner)
         //cell.shortText.sizeToFit()        
         
         return cell

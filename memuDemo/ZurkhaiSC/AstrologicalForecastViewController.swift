@@ -36,7 +36,7 @@ class AstrologicalForecastViewController: UIViewController,UINavigationBarDelega
         
         paramDict = JSONTaker.shared.loadData(API: "zurkhay", paramNames: ["id", "date", "title", "text"])
         
-        print ("paramDict.count", paramDict.count)
+        //print ("paramDict.count", paramDict.count)
         
         
         tableView.contentInset = UIEdgeInsetsMake(20.0, 0.0, 0.0, 0.0)        
@@ -53,10 +53,6 @@ class AstrologicalForecastViewController: UIViewController,UINavigationBarDelega
     
     func tableView(_ tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
         return (self.paramDict["id"]?.count)!;
-    }
-    
-    func tableView(_ tableView: UITableView!, didSelectRowAtIndexPath indexPath: IndexPath!) {
-        print("You selected name : "+day[indexPath.row])
     }
     
     func tableView(_ tableView: UITableView, cellForRowAtIndexPath indexPath: IndexPath) -> UITableViewCell {

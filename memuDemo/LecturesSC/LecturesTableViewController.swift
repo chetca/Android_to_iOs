@@ -49,7 +49,9 @@ class LecturesTableViewController: UITableViewController {
                 
         StringLblText   = (self.paramDict["title"]?[indexPath.row])! 
         StringText = (self.paramDict["text"]?[indexPath.row])!
-        StringDataField = (self.paramDict["date"]?[indexPath.row])!          
+        StringDataField = (self.paramDict["date"]?[indexPath.row])!    
+        StringUrlImg = (self.paramDict["image"]?[indexPath.row])!
+        
         performSegue(withIdentifier: "segue", sender: self)         
     }
     
@@ -62,11 +64,8 @@ class LecturesTableViewController: UITableViewController {
         cell.shortTextLbl.setHTML(html: (self.paramDict["short"]?[indexPath.row])!)
         
         JSONTaker.shared.loadImg(imgURL: (self.paramDict["image"]?[indexPath.row])!, 
-                                 img: cell.img, 
-                                 spinner: cell.spinner,
-                                 imgHeightConstraint: cell.imgHeight)        
-
-        
+                                 img: [cell.img], 
+                                 spinner: cell.spinner)                
         
         return cell
     }

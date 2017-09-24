@@ -21,7 +21,7 @@ class CurrentAlbumViewController: UIViewController, UICollectionViewDelegate, UI
         // Do any additional setup after loading the view.w
         
         albumTitle.title = StringNavBarTitle
-        print(StringNavBarTitle)
+        //print(StringNavBarTitle)
         
         itemSize = (UIScreen.main.bounds.width-6)/3 - 2
         
@@ -54,8 +54,7 @@ class CurrentAlbumViewController: UIViewController, UICollectionViewDelegate, UI
         let xPosition = Int((UIApplication.shared.keyWindow?.frame.width)!) * indexPath.row
         
         JSONTaker.shared.loadImg(imgURL: StringImgURLs[indexPath.row], 
-                                 img1: cell.img, 
-                                 img2: fullScreenPict, 
+                                 img: [cell.img,fullScreenPict],
                                  spinner: cell.spinner)
         
         fullScreenPict.contentMode = .scaleAspectFit

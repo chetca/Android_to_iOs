@@ -21,7 +21,7 @@ class OrderCurrentKhuralViewController: UIViewController, UITextFieldDelegate {
     var khuralDate :  String = "" 
     @IBAction func orderKhuralButton(_ sender: Any) {
         //checkInputData
-        print("oooh, you tuch my tralala")
+        //print("oooh, you tuch my tralala")
         
         if (fullNameTextField.text == "") {
             JSONTaker.shared.showAlert(title: "Обязательные поля заполнены не верно", message: "", viewController: self)

@@ -25,7 +25,7 @@ class CurrentNewsViewController: UIViewController {
         lblText.text = StringLblText
         dataField.text = StringDataField
         textNews.text = StringText             
-        JSONTaker.shared.loadImg(imgURL: StringUrlImg, img: img, spinner: spinner, imgHeightConstraint: imgHeight)
+        JSONTaker.shared.loadImg(imgURL: StringUrlImg, img: [img], spinner: spinner)
         img.sizeToFit()                                        
         
         textNews.setHTML(html: textNews.text!)                                

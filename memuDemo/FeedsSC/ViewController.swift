@@ -62,14 +62,14 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
     var dataString: [String] = []
     
     @objc(tableView:didSelectRowAtIndexPath:) func tableView(_ tableView: UITableView,didSelectRowAt indexPath: IndexPath) {
-        print("You selected name : "+(self.paramDict["date"]?[indexPath.row])!)
+        //print("You selected name : "+(self.paramDict["date"]?[indexPath.row])!)
                 
         
         StringLblText   = (self.paramDict["title"]?[indexPath.row])! 
         StringText = (self.paramDict["text"]?[indexPath.row])!
         StringDataField = (self.paramDict["date"]?[indexPath.row])!
         StringUrlImg    = (self.paramDict["image"]?[indexPath.row])!  
-        print(paramDict.count, "in select")
+        //print(paramDict.count, "in select")
         performSegue(withIdentifier: "segue", sender: self)                       
     }
 
@@ -79,7 +79,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         cell.dataTime.text = JSONTaker.shared.convertDate(date: (self.paramDict["date"]?[indexPath.row])!)
         cell.titleText.text = self.paramDict["title"]?[indexPath.row]
         cell.shortText.text = self.paramDict["short"]?[indexPath.row]
-        JSONTaker.shared.loadImg(imgURL: (self.paramDict["image"]?[indexPath.row])!, img: cell.img, spinner: cell.spinner)
+        JSONTaker.shared.loadImg(imgURL: (self.paramDict["image"]?[indexPath.row])!, img: [cell.img], spinner: cell.spinner)
         
         cell.shortText.sizeToFit()   
         cell.titleText.sizeToFit()

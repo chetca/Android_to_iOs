@@ -58,8 +58,6 @@ class JSONTaker
                                     
             var validStrJSON = "{\n  \"page\":" + strJSON! + "\n}"            
             
-            print (validStrJSON)
-            
             let arr: [UInt8] = Array(validStrJSON.utf8)
             allData = Data(arr)
             
@@ -160,51 +158,7 @@ class JSONTaker
         }
     }    
     
-    func loadImg(imgURL: String, img: UIImageView, spinner: UIActivityIndicatorView, imgHeightConstraint: NSLayoutConstraint)-> Void{
-        
-        spinner.startAnimating()
-        spinner.hidesWhenStopped = true
-        let urlURL = URL(string: imgURL)
-        
-        if let lru = urlURL {         
-            asyncLoadImage(imageURL: urlURL!,
-                           runQueue: DispatchQueue.global(),
-                           completionQueue: DispatchQueue.main)
-            { result, error in
-                guard let image = result
-                    else {return}
-                img.image = image                
-                
-                DispatchQueue.main.async(execute: {
-                    while (true) {
-                        if img.bounds.width != 0.0 {
-                            imgHeightConstraint.constant = img.bounds.width * ((img.image?.size.height)!/(img.image?.size.width)!)
-                            
-                            print (img.bounds.width)
-                            print ((img.image?.size.height))
-                            print (img.image?.size.width)
-                            
-                            img.frame = CGRect(x: img.frame.origin.x,
-                                               y: img.frame.origin.y,
-                                               width: img.frame.width,
-                                               height: imgHeightConstraint.constant)
-                            
-                            print ("imgFrame", img.frame)
-                            
-                            return
-                        }
-                    }                    
-                })                                               
-                
-                spinner.stopAnimating()            
-            }        
-        }
-        else {
-            print ("error img url, baka")
-        }
-    } 
-    
-    func loadImg(imgURL: String, img1: UIImageView, img2: UIImageView, spinner: UIActivityIndicatorView)-> Void{
+    func loadImg(imgURL: String, img: [UIImageView], spinner: UIActivityIndicatorView)-> Void{
         
         spinner.startAnimating()
         spinner.hidesWhenStopped = true
@@ -216,33 +170,31 @@ class JSONTaker
         { result, error in
             guard let image = result
                 else {return}
-            img1.image = image
-            img2.image = image            
+            
+            for gmi in img {
+                gmi.image = image
+                
+                if (gmi.contentMode == UIViewContentMode.scaleAspectFit) {                
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.1,execute: {
+                        while (true) {
+                            if gmi.bounds.width != 0.0 {
+                                var hhh = gmi.bounds.width * ((gmi.image?.size.height)!/(gmi.image?.size.width)!)                                                        
+                                
+                                gmi.frame = CGRect(x: gmi.frame.origin.x,
+                                                   y: gmi.frame.origin.y,
+                                                   width: gmi.frame.width,
+                                                   height: hhh)                                                            
+                                return
+                            }
+                        }
+                        
+                        
+                    })       
+                }
+            }            
             spinner.stopAnimating()
         }        
-    } 
-    
-    func loadImg(imgURL: String, img: UIImageView, spinner: UIActivityIndicatorView)-> Void{
-        
-        spinner.startAnimating()
-        spinner.hidesWhenStopped = true
-        let urlURL = URL(string: imgURL)
-        
-        if let lru = urlURL {         
-            asyncLoadImage(imageURL: urlURL!,
-                       runQueue: DispatchQueue.global(),
-                       completionQueue: DispatchQueue.main)
-            { result, error in
-                guard let image = result
-                    else {return}
-                img.image = image
-                spinner.stopAnimating()            
-            }        
-        }
-        else {
-            print ("error img url, baka")
-        }
-    }  
+    }         
     
     func asyncLoadImage(imageURL: URL,
                         runQueue: DispatchQueue,
@@ -296,7 +248,7 @@ class JSONTaker
     func onPostTapped(API: String, parameters : [String : String] ) {
         
         //  let parameters = ["username": "@kilo_loco", "tweet": "HelloWorld"]
-        
+        /*
         guard let url = URL(string: baseURL + API) else { return }
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -321,7 +273,7 @@ class JSONTaker
             }
             
             }.resume()
-        
+            */
     }
     
     func showAlert (title: String, message: String, viewController: UIViewController) {
@@ -342,8 +294,6 @@ class JSONTaker
         while (html.characters.first != Character("\"")) {
             html.remove(at: html.startIndex)            
         }
-        
-        print (html)
 
         html.remove(at: html.startIndex)
         var adequate = ""
@@ -360,7 +310,6 @@ class JSONTaker
         
         adeq = String(adeq.characters.reversed())
         
-        print (adeq)
         return adeq
     }
      

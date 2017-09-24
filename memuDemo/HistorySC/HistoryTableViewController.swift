@@ -43,7 +43,7 @@ class HistoryTableViewController: UITableViewController
         StringText  = (self.paramDict["text"]?[indexPath.row])!
         StringDataField = (self.paramDict["date"]?[indexPath.row])!
         StringUrlImg    = (self.paramDict["image"]?[indexPath.row])!  
-        print(paramDict.count, "in select")
+        //print(paramDict.count, "in select")
         performSegue(withIdentifier: "segue", sender: self)
     }
     
@@ -53,37 +53,23 @@ class HistoryTableViewController: UITableViewController
         cell.dataTime.text = JSONTaker.shared.convertDate(date: (self.paramDict["date"]?[indexPath.row])!)
         cell.titleLbl.text = self.paramDict["title"]?[indexPath.row]
         cell.shortText.text = self.paramDict["short"]?[indexPath.row]                        	            
-        JSONTaker.shared.loadImg(imgURL: (self.paramDict["image"]?[indexPath.row])!, img: cell.img, spinner: cell.spinner, imgHeightConstraint: cell.imgHeight)
+        JSONTaker.shared.loadImg(imgURL: (self.paramDict["image"]?[indexPath.row])!, img: [cell.img], spinner: cell.spinner)
         
         //cell.titleHeight.constant = qwe * CGFloat(cell.titleLbl.numberOfLines) 
         
         cell.shortText.sizeToFit()
         cell.img.sizeToFit()
         
+        /*
         print (cell.titleLbl.frame)
         print (cell.img.frame)        
         print ("ch",cell.shortText.frame)
         print (cell.dataTime.frame)
         print (cell.frame)
+        */      
+        
+        cell.shortText.numberOfLines = 0        
                 
-        cell.shortText.numberOfLines = 0
-        
-        
-        DispatchQueue.main.async(execute: {
-            while (true) {
-                if (cell.img) != nil {
-                    cell.shortText.frame = CGRect(x: cell.img.frame.origin.x,
-                                          y: cell.img.frame.origin.y + cell.img.frame.height + 7,
-                                          width: cell.shortText.frame.width,
-                                          height: cell.shortText.frame.height)
-                    print ("ch", cell.shortText.frame)
-                    return
-                }
-                
-            }
-        })
-        
-        
         return cell
     }
 
